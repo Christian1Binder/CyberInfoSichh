@@ -4,7 +4,6 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"/>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0f172a">
 <title>CyberOffz: Ultimate Trainer</title>
 
@@ -27,11 +26,11 @@ body { margin:0; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
 h1, h2, h3 { margin:0 0 10px 0; }
 
 /* BUTTONS */
-.btn { border:none; padding:14px 20px; border-radius:12px; font-weight:bold; cursor:pointer; font-size:1rem; color:white; transition:0.2s; display:inline-flex; align-items:center; justify-content:center; gap:8px; touch-action: manipulation; }
+.btn { border:none; padding:16px 24px; border-radius:12px; font-weight:bold; cursor:pointer; font-size:1.1rem; color:white; transition:0.2s; display:inline-flex; align-items:center; justify-content:center; gap:8px; touch-action: manipulation; }
 .btn:active { transform:scale(0.98); }
 .btn-primary { background:var(--accent); box-shadow:0 4px 12px rgba(59,130,246,0.3); }
 .btn-exam { background:var(--warning); color:#000; }
-.btn-outline { background:transparent; border:1px solid var(--border); color:var(--muted); }
+.btn-outline { background:transparent; border:1px solid var(--border); color:var(--muted); font-size:0.9rem; padding:10px 16px; }
 .btn-block { width:100%; }
 
 /* START SCREEN */
@@ -61,11 +60,6 @@ h1, h2, h3 { margin:0 0 10px 0; }
 .expl-box.is-correct { border-left-color:var(--success); }
 .expl-box.is-wrong { border-left-color:var(--error); }
 .expl-title { font-weight:bold; margin-bottom:5px; display:block; }
-
-/* NEXT BUTTON FOOTER */
-.bottom-nav { position:fixed; bottom:0; left:0; width:100%; background:rgba(15, 23, 42, 0.95); backdrop-filter:blur(10px); padding:15px 20px; border-top:1px solid var(--border); z-index:100; display:flex; justify-content:center; transform:translateY(100%); transition:transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); padding-bottom:max(15px, env(safe-area-inset-bottom)); }
-.bottom-nav.visible { transform:translateY(0); }
-.btn-next { width:100%; max-width:600px; font-size:1.1rem; padding:16px; }
 
 /* EXAM MODE */
 .exam-item { background:var(--panel); padding:20px; border-radius:12px; border:1px solid var(--border); margin-bottom:15px; }
@@ -110,7 +104,7 @@ h1, h2, h3 { margin:0 0 10px 0; }
 
 <div id="trainer-screen" class="wrap scroll-wrap hidden">
     <div class="top-bar">
-        <button class="btn btn-outline" style="padding:6px 12px; font-size:0.8rem;" onclick="location.reload()">Beenden</button>
+        <button class="btn btn-outline" onclick="location.reload()">Beenden</button>
         <div class="streak-box">🔥 <span id="t-streak">0</span></div>
     </div>
     <div class="progress-track"><div id="t-progress" class="progress-fill"></div></div>
@@ -129,11 +123,7 @@ h1, h2, h3 { margin:0 0 10px 0; }
         </div>
     </div>
     
-    <div style="height:80px;"></div>
-</div>
-
-<div id="trainer-footer" class="bottom-nav">
-    <button class="btn btn-primary btn-next" onclick="nextCard()">Nächste Frage ➔</button>
+    <button id="next-btn" class="btn btn-primary btn-block" style="display:none; margin-bottom:30px;" onclick="nextCard()">Nächste Frage ➔</button>
 </div>
 
 <div id="exam-screen" class="wrap scroll-wrap hidden">
@@ -144,7 +134,7 @@ h1, h2, h3 { margin:0 0 10px 0; }
     <div id="exam-result-header" class="hidden"></div>
     <div id="exam-list"></div>
     <div style="margin-top:30px; padding-top:20px; border-top:1px solid var(--border);">
-        <button id="btn-submit-exam" class="btn btn-primary btn-block" style="padding:18px; font-size:1.1rem;" onclick="submitExam()">Prüfung jetzt abgeben</button>
+        <button id="btn-submit-exam" class="btn btn-primary btn-block" onclick="submitExam()">Prüfung jetzt abgeben</button>
     </div>
 </div>
 
@@ -273,7 +263,6 @@ function initTrainer(filter) {
     isExam = false;
     document.getElementById('start-screen').classList.add('hidden');
     document.getElementById('trainer-screen').classList.remove('hidden');
-    document.getElementById('trainer-footer').classList.remove('hidden'); // Footer aktivieren
     
     if(filter === 'ALL') activeSet = [...BANK];
     else activeSet = BANK.filter(x => x.m === filter);
@@ -286,8 +275,9 @@ function initTrainer(filter) {
 }
 
 function loadCard() {
-    // Nav Button verstecken
-    document.getElementById('trainer-footer').classList.remove('visible');
+    // Button immer erst ausblenden
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.style.display = 'none';
 
     if(currentIndex >= activeSet.length) {
         if(retryStack.length > 0) {
@@ -333,10 +323,10 @@ function checkTrainerAnswer(btn, isCorrect, item) {
     document.getElementById('t-expl-title').innerText = isCorrect ? "✓ Richtig!" : "✗ Leider falsch.";
     document.getElementById('t-expl-text').innerText = item.e;
     
-    // Haptik (Vibration)
+    // Vibration
     if(navigator.vibrate) {
-        if(!isCorrect) navigator.vibrate(200); // Lang bei Fehler
-        else navigator.vibrate(50); // Kurz bei Erfolg
+        if(!isCorrect) navigator.vibrate(200); 
+        else navigator.vibrate(50);
     }
 
     if(isCorrect) {
@@ -352,8 +342,10 @@ function checkTrainerAnswer(btn, isCorrect, item) {
     }
     updateStreak();
     
-    // Footer Button anzeigen
-    document.getElementById('trainer-footer').classList.add('visible');
+    // Button anzeigen & hinscrollen
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.style.display = 'block';
+    nextBtn.scrollIntoView({behavior: "smooth", block: "center"});
 }
 
 function nextCard() {
@@ -372,7 +364,6 @@ function initExam() {
     isExam = true;
     document.getElementById('start-screen').classList.add('hidden');
     document.getElementById('exam-screen').classList.remove('hidden');
-    document.getElementById('trainer-footer').classList.add('hidden'); // Footer aus
     
     let pool = [...BANK];
     shuffle(pool);
