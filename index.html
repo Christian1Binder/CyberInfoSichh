@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Leistungsnachweis – Informationssicherheit (Prüfungsmodus)</title>
+<title>Leistungsnachweis – Informationssicherheit (Clean Version)</title>
 <style>
 :root {
   --bg:#0b1220;
@@ -87,8 +87,8 @@ hr{border:none;border-top:1px solid var(--border);margin:12px 0;}
 <body>
 <header>
   <div class="wrap">
-    <h1>Leistungsnachweis – Informationssicherheit (Prüfungsmodus)</h1>
-    <div class="sub">Pro Prüfung werden <strong>50</strong> Fragen zufällig aus dem Fragenpool gewählt. Keine Einzelprüfung – Auswertung nur bei <strong>„Prüfung abgeben“</strong>. Bestehensgrenze: <strong>65%</strong>.</div>
+    <h1>Leistungsnachweis – Informationssicherheit (Clean Version)</h1>
+    <div class="sub">Pro Prüfung werden <strong>30</strong> Fragen zufällig aus dem bereinigten Fragenpool gewählt. Bestehensgrenze: <strong>65%</strong>.</div>
   </div>
 </header>
 
@@ -102,8 +102,7 @@ hr{border:none;border-top:1px solid var(--border);margin:12px 0;}
   </div>
 
   <div id="status" class="notice warn">
-    <div><strong>Start:</strong> Klicke auf <strong>„Neue Prüfung“</strong>, um eine zufällige Auswahl zu ziehen.</div>
-    <div class="small" style="margin-top:6px;">Tipp: Die Auswahl bleibt im Browser stabil, auch wenn du neu lädst – bis du eine neue Prüfung startest oder alles löschst.</div>
+    <div><strong>Start:</strong> Klicke auf <strong>„Neue Prüfung“</strong>, um zu beginnen.</div>
   </div>
 
   <div class="toggle small" style="margin-top:12px;">
@@ -114,8 +113,361 @@ hr{border:none;border-top:1px solid var(--border);margin:12px 0;}
 </main>
 
 <script>
-const BANK = {"title": "Leistungsnachweis – Informationssicherheit (Prüfungsmodus)", "passMark": 65, "examSize": 50, "questions": [{"q": "Welche Definition passt am besten zu „Veränderter Teil“?", "options": ["der interessanteste!", "man die Eigenschaft", "ein Security Gateway?", "ein E-Mail-Filter?"], "answer": 0, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.16", "type": "def"}, {"q": "Welche Definition passt am besten zu „Virus“?", "options": ["Selbstreplizierender Code, ohne ein Wirtsprogramm.", "schadhafter Code, der sich in andere Programme oder", "Software, die sich als legitime Anwendung tarnt, um", "der interessanteste!"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.34", "type": "def"}, {"q": "Welche Definition passt am besten zu „Trojaner“?", "options": ["Software, die sich als legitime Anwendung tarnt, um", "Informationen, die zum „Wohle des Staates geheim gehalten werden müssen“", "man die Eigenschaft", "schadhafter Code, der sich in andere Programme oder"], "answer": 0, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.34", "type": "def"}, {"q": "Welche Definition passt am besten zu „Wurm“?", "options": ["schadhafter Code, der sich in andere Programme oder", "ein Intrusion Protection/Detection System?", "Selbstreplizierender Code, ohne ein Wirtsprogramm.", "ein Schwachstellenscanner?"], "answer": 2, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.34", "type": "def"}, {"q": "Welche Definition passt am besten zu „CVE (Common Vulnerabilities and Exposures)“?", "options": ["Distributed Denial of Service", "eine Web Application Firewall?", "Internationaler Standard zur", "ein Umstand oder Ereignis,"], "answer": 2, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.52", "type": "def"}, {"q": "Welche Definition passt am besten zu „NVD (National Vulnerability Database)“?", "options": ["Distributed Reflected Denial of Service", "Alles, was nicht unter BPersDat fällt", "ein Antivirenscanner? Was ist ein EDR?", "offizielle Datenbank d. US-Regierung"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.52", "type": "def"}, {"q": "Welche Definition passt am besten zu „• Doxing“?", "options": ["ein Intrusion Protection/Detection System?", "gezielte Sammeln und Veröffentlichen privater", "Selbstreplizierender Code, ohne ein Wirtsprogramm.", "schadhafter Code, der sich in andere Programme oder"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.53", "type": "def"}, {"q": "Welche Definition passt am besten zu „DoS“?", "options": ["Distributed Denial of Service", "ein E-Mail-Filter?", "Distributed Reflected Denial of Service", "Denial of Service"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.57", "type": "def"}, {"q": "Welche Definition passt am besten zu „DDoS“?", "options": ["Distributed Reflected Denial of Service", "Denial of Service", "Internationaler Standard zur", "Distributed Denial of Service"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.57", "type": "def"}, {"q": "Welche Definition passt am besten zu „DRDos“?", "options": ["ein Antivirenscanner? Was ist ein EDR?", "Distributed Reflected Denial of Service", "Denial of Service", "Distributed Denial of Service"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.57", "type": "def"}, {"q": "Welche Definition passt am besten zu „Als Informationssicherheit […]“?", "options": ["man die Eigenschaft", "ein E-Mail-Filter?", "der interessanteste!", "Denial of Service"], "answer": 0, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.9", "type": "def"}, {"q": "Welche Definition passt am besten zu „• Allgemein: VS“?", "options": ["schadhafter Code, der sich in andere Programme oder", "Informationen, die zum „Wohle des Staates geheim gehalten werden müssen“", "man die Eigenschaft", "Software, die sich als legitime Anwendung tarnt, um"], "answer": 1, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.24", "type": "def"}, {"q": "Welche Definition passt am besten zu „https://www.youtube.com/watch?v“?", "options": ["man die Eigenschaft", "VF5A2JhiJug", "Denial of Service", "ein E-Mail-Filter?"], "answer": 1, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.30", "type": "def"}, {"q": "Welche Definition passt am besten zu „APersDat“?", "options": ["Distributed Reflected Denial of Service", "offizielle Datenbank d. US-Regierung", "ein Antivirenscanner? Was ist ein EDR?", "Alles, was nicht unter BPersDat fällt"], "answer": 3, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.34", "type": "def"}, {"q": "Welche Definition passt am besten zu „Eine Bedrohung“?", "options": ["ein Schwachstellenscanner?", "ein Umstand oder Ereignis,", "ein Security Gateway?", "ein E-Mail-Filter?"], "answer": 1, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.44", "type": "def"}, {"q": "Welche Definition passt am besten zu „1) Was“?", "options": ["ein Intrusion Protection/Detection System?", "ein Antivirenscanner? Was ist ein EDR?", "ein Schwachstellenscanner?", "Alles, was nicht unter BPersDat fällt"], "answer": 1, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.19", "type": "def"}, {"q": "Welche Definition passt am besten zu „2) Was“?", "options": ["ein Schwachstellenscanner?", "Selbstreplizierender Code, ohne ein Wirtsprogramm.", "ein Intrusion Protection/Detection System?", "ein Antivirenscanner? Was ist ein EDR?"], "answer": 2, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.19", "type": "def"}, {"q": "Welche Definition passt am besten zu „4) Was“?", "options": ["Internationaler Standard zur", "ein Umstand oder Ereignis,", "Distributed Denial of Service", "eine Web Application Firewall?"], "answer": 3, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.19", "type": "def"}, {"q": "Welche Definition passt am besten zu „5) Was“?", "options": ["ein Umstand oder Ereignis,", "ein E-Mail-Filter?", "ein Schwachstellenscanner?", "ein Security Gateway?"], "answer": 1, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.19", "type": "def"}, {"q": "Welche Definition passt am besten zu „6) Was“?", "options": ["ein Security Gateway?", "ein Umstand oder Ereignis,", "ein E-Mail-Filter?", "ein Schwachstellenscanner?"], "answer": 3, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.19", "type": "def"}, {"q": "Welche Definition passt am besten zu „8) Was ist ein Forward/Reverse Proxy? Was“?", "options": ["ein Umstand oder Ereignis,", "ein E-Mail-Filter?", "ein Security Gateway?", "ein Schwachstellenscanner?"], "answer": 2, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.19", "type": "def"}, {"q": "Welche Option gehört NICHT zu „Cyberbedrohungen“?", "options": ["Sie ermöglichen ein besseres Verständnis von Angreifern und deren Vorgehensweisen", "Sie fördern eine gemeinsame Sprache / Terminologie", "Sie bilden die Grundlage für eine strategische Cyber-Intelligence-Ausrichtung Jedes Modell weist spezifische Stärken und Einsatzbereiche auf! Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 4", "Es gibt Überschneidungen aber keine Garantie auf 1:1 Übereinstimmung Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 70"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.4", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Sie fördern eine gemeinsame Sprache / Terminologie“?", "options": ["Bedrohungsarten", "• Sonderstellung", "Cyberbedrohungen", "Herausforderungen"], "answer": 2, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.4", "type": "class"}, {"q": "Welche Option gehört NICHT zu „• Beispiele“?", "options": ["Einträge in der Registry oder anderen Betriebssystem- Konfigurationsdateien", "Header innerhalb bestimmter Protokolle (User-Agent in HTTP oder SMTP)", "Schutz vor Web-Angriffen (SQL-Injection, XSS, CSRF)", "In URLs kodierte Muster, welche zu Angriffen führen können (z.B. XSS, SQL-Injection, usw.)"], "answer": 2, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.10", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Charakteristische Elemente, die von bestimmten Exploits Quelle: David J. Bianco (2013) verwendet werden. Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 10“?", "options": ["Grundregeln", "Mit dem Ziel", "Erkennung", "• Beispiele"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.10", "type": "class"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Direkte Angriffe auf Kunden, Lieferanten oder Partner“?", "options": ["Einzigartige Namen bei", "Nützliche Links / Quellen", "Zusätzlich Angriffe wie", "Herausforderungen"], "answer": 2, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.38", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Ausnutzung menschlicher Eigenschaften“?", "options": ["Respekt vor Autorität", "Hilfsbereitschaft", "Schutz sensibler Daten vor", "Angst"], "answer": 2, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.40", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Hilfsbereitschaft“?", "options": ["Abstrahlsicherheit bezeichnet den", "Ausnutzung menschlicher Eigenschaften", "• Schutz / Risikominimierung durch", "Beispielsweise: Beispielsweise"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.40", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Mit dem Ziel“?", "options": ["Sicherheitsfunktionen auszuhebeln", "Überweisungen zu tätigen", "Bitten um Geld oder sensible Informationen", "Vertrauliche Informationen zu erhalten"], "answer": 2, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.40", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Schadsoftware zu installieren Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 40“?", "options": ["• Beispiele", "Grundregeln", "Erkennung", "Mit dem Ziel"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.40", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Grundregeln“?", "options": ["Sie strukturieren und bewerten sicherheitsrelevante Informationen", "Bei zeitkritischen Reaktionen, vorab auf Legitimität prüfen (z.B. Anruf beim Absender) Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 42", "Keine Passwörter, Zugangsdaten, Kontoinformationen, etc. teilen", "Keine vertraulichen Informationen in privaten und beruflichen Netzwerken teilen"], "answer": 0, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.42", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Keine Passwörter, Zugangsdaten, Kontoinformationen, etc. teilen“?", "options": ["• Beispiele", "Mit dem Ziel", "Grundregeln", "Erkennung"], "answer": 2, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.42", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Erkennung“?", "options": ["Schlechte Rechtschreibung und Grammatik", "Genetische und biometrische Daten", "Starke Emotionen und Drucktaktiken", "Bitten um Geld oder sensible Informationen"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.43", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Schlechte Rechtschreibung und Grammatik“?", "options": ["• Beispiele", "• Quellen", "Erkennung", "Grundregeln"], "answer": 2, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.43", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Arten“?", "options": ["Aktivitäten Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 68", "Vishing (Phishing per Telefonanruf) Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 45", "Smishing (gefälschte Textnachrichten SMS)", "Spear-Phishing (gezielter Phishing-Angriff auf eine bestimmte Person) URL Scan"], "answer": 0, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.45", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „BEC (CEO-Betrug, E-Mail-Kontokompromittierung EAC)“?", "options": ["Erkennung", "Arten", "DSGVO)", "Formen"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.45", "type": "class"}, {"q": "Welche Option gehört NICHT zu „• Quellen“?", "options": ["Online Foren, Blogs", "Spionage / Sabotage", "Online-Verzeichnisse (Telefonnummern, E-Mail-Adressen und physischen Adressen)", "Social-Media-Plattformen (Facebook, X, Instagram und LinkedIn, Strava)"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.48", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Akademische Forschung (Studienarbeiten, Dissertationen und Fachzeitschriften)“?", "options": ["Erkennung", "• Beispiele", "Nützliche Links / Quellen", "• Quellen"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.48", "type": "class"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Syn Flooding (TCP/IP Handshake  SYN-Flooding Angriff mit gefälschter, im Internet erreichbarer Absender-IP  hoher Ressourcenverbrauch durch SYN-ACK-Pakete)“?", "options": ["Arten", "DSGVO)", "Erkennung", "Formen"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.58", "type": "class"}, {"q": "Welche Option gehört NICHT zu „• Schutz / Risikominimierung durch“?", "options": ["Threat-Intelligence-Feeds", "Überweisungen zu tätigen", "Anomaliebasierte Erkennungsmethoden", "Zero-Trust-Architektur Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 59"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.59", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Anomaliebasierte Erkennungsmethoden“?", "options": ["Beispielsweise: Beispielsweise", "• Schutz / Risikominimierung durch", "Ausnutzung menschlicher Eigenschaften", "Abstrahlsicherheit bezeichnet den"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.59", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Einzigartige Namen bei“?", "options": ["Aktivitäten Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 68", "Vertrauen", "Malware Familien", "Kampagnen"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.68", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Kampagnen“?", "options": ["Nützliche Links / Quellen", "Zusätzlich Angriffe wie", "Herausforderungen", "Einzigartige Namen bei"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.68", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Jeder Software- /Sicherheitsanbieter hat seine eigene Namensgebung“?", "options": ["Es gibt Überschneidungen aber keine Garantie auf 1:1 Übereinstimmung Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 70", "Leichter zu merken", "Print- und Onlinemedien (Zeitungen, Zeitschriften und Nachrichtenseiten)", "Bedrohungsakteure nutzen teilweise dieselben Werkzeuge und Infrastruktur"], "answer": 2, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.70", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Bedrohungsakteure können sich im Laufe der Zeit zusammenschließen oder aufspalten“?", "options": ["Ausnutzung menschlicher Eigenschaften", "Jeder Software- /Sicherheitsanbieter hat seine eigene Namensgebung", "Abstrahlsicherheit bezeichnet den", "• Schutz / Risikominimierung durch"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.70", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Herausforderungen“?", "options": ["Mehrere Gruppen arbeiten zusammen um ein gemeinsames, größeres Ziel zu erreichen Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 74", "Mehrere Angreifer arbeiten zusammen oder greifen unabhängig voneinander dasselbe Ziel an", "Überschneidungen bzgl. der genutzten Malware", "Bedrohungsakteure können sich im Laufe der Zeit zusammenschließen oder aufspalten"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.74", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Mehrere Gruppen arbeiten zusammen um ein gemeinsames, größeres Ziel zu erreichen Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 74“?", "options": ["• Sonderstellung", "Cyberbedrohungen", "Bedrohungsarten", "Herausforderungen"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.74", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Nützliche Links / Quellen“?", "options": ["https://www.microsoft.com/ Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 79", "Bankverbindung sensiblen Inhalten (z.B. Pfändung)", "https://attack.mitre.org/ • APT Groups and Operations - Google", "https://www.cisa.gov/ • https://www.mandiant.com/"], "answer": 1, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.79", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „https://malpedia.caad.fkie.fraunhofer.de/ • https://www.crowdstrike.com/“?", "options": ["Einzigartige Namen bei", "• Quellen", "Zusätzlich Angriffe wie", "Nützliche Links / Quellen"], "answer": 3, "meta": "2026-01-16_OFFEN_InfoSichh_Bedrohungen.pdf S.79", "type": "class"}, {"q": "Welche Option gehört NICHT zu „DSGVO)“?", "options": ["Bitten um Geld oder sensible Informationen", "Rassische und ethnische Herkunft", "Politische Meinungen", "Religiöse oder weltanschauliche Überzeugung"], "answer": 0, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.33", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Sexualleben / Sexuelle Orientierung ( ELP)“?", "options": ["Formen", "Erkennung", "Arten", "DSGVO)"], "answer": 3, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.33", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Beispielsweise: Beispielsweise“?", "options": ["Funktion", "Familienstand • Urteile / Gerichtsbeschlüsse mit", "Geburtsdatum • Sicherheitsakten", "https://www.bsi.bund.de/ Sheets"], "answer": 3, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.34", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Funktion“?", "options": ["• Verschlüsselung erforderlich", "Beispielsweise: Beispielsweise", "Abstrahlsicherheit bezeichnet den", "• Schutz / Risikominimierung durch"], "answer": 1, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.34", "type": "class"}, {"q": "Welche Option gehört NICHT zu „• Sonderstellung“?", "options": ["Personalnummer", "Bankverbindung sensiblen Inhalten (z.B. Pfändung)", "DDoS-Schutz für Web-Anwendungen Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 28", "letzten 5 Ziffern der PK Verarbeitung für dienstlichen Zweck Jeweils Schutzmaßnahmen zu treffen Jeweils Schutzmaßnahmen zu treffen immer zulässig Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 41"], "answer": 2, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.34", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Bankverbindung sensiblen Inhalten (z.B. Pfändung)“?", "options": ["• Sonderstellung", "Bedrohungsarten", "Cyberbedrohungen", "Herausforderungen"], "answer": 0, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.34", "type": "class"}, {"q": "Welche Option gehört NICHT zu „• Verschlüsselung erforderlich“?", "options": ["MS Office", "PDF", "7-Zip", "Angst"], "answer": 3, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.36", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „7-Zip“?", "options": ["Abstrahlsicherheit bezeichnet den", "• Schutz / Risikominimierung durch", "Beispielsweise: Beispielsweise", "• Verschlüsselung erforderlich"], "answer": 3, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.36", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Bedrohungsarten“?", "options": ["Aktivitäten Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 68", "Innentäter / Außentätet / Hacker Höhere Gewalt Fehlhandlung", "Spionage / Sabotage", "Cyberattacken / Angriffsstrategien (fahrlässig) Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 52"], "answer": 0, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.44", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Innentäter / Außentätet / Hacker Höhere Gewalt Fehlhandlung“?", "options": ["• Sonderstellung", "Cyberbedrohungen", "Hauptfunktionen", "Bedrohungsarten"], "answer": 3, "meta": "2026-01-14_Offen_Gdl-der-InfoSichh_3UE.pdf S.44", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Abstrahlsicherheit bezeichnet den“?", "options": ["Unerwünschter Offenlegung durch", "Emissionen elektromagnetischer Strahlung, um", "https://www.bsi.bund.de/ Sheets", "in sicherheitskritischen Umgebungen. Informationssicherheit Offen 4"], "answer": 2, "meta": "2026-01-14_Offen_Abstrahlsicherheit_1UE.pdf S.4", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „die Vertraulichkeit und Integrität zu gewährleisten, insbesondere“?", "options": ["Abstrahlsicherheit bezeichnet den", "Beispielsweise: Beispielsweise", "• Verschlüsselung erforderlich", "• Schutz / Risikominimierung durch"], "answer": 0, "meta": "2026-01-14_Offen_Abstrahlsicherheit_1UE.pdf S.4", "type": "class"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Automatische Reaktion (nur IPS): Blockiert Angriffe in Echtzeit. Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 24“?", "options": ["• Sonderstellung", "Bedrohungsarten", "Hauptfunktionen", "Cyberbedrohungen"], "answer": 2, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.21", "type": "class"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Blockiert unautorisierte Netzwerkzugriffe“?", "options": ["Cyberbedrohungen", "Hauptfunktionen", "• Sonderstellung", "Bedrohungsarten"], "answer": 1, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.23", "type": "class"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „DDoS-Schutz für Web-Anwendungen Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 28“?", "options": ["Bedrohungsarten", "• Sonderstellung", "Hauptfunktionen", "Cyberbedrohungen"], "answer": 2, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.25", "type": "class"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Spam-Filterung und Phishing-Schutz“?", "options": ["Cyberbedrohungen", "Hauptfunktionen", "Bedrohungsarten", "• Sonderstellung"], "answer": 1, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.26", "type": "class"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Regelmäßige Überprüfung auf neue Sicherheitslücken Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 30“?", "options": ["Cyberbedrohungen", "• Sonderstellung", "Bedrohungsarten", "Hauptfunktionen"], "answer": 3, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.27", "type": "class"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Log-Management: Speichert und analysiert Sicherheitsprotokolle.“?", "options": ["Hauptfunktionen", "Cyberbedrohungen", "Bedrohungsarten", "• Sonderstellung"], "answer": 0, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.28", "type": "class"}, {"q": "Welche Option gehört NICHT zu „Hauptfunktionen“?", "options": ["Zugriffskontrolle und Web-Filterung", "Ggf. mit Security Gateway zum Virenschutz Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 32", "Caching für schnellere Ladezeiten", "Spam-Filterung und Phishing-Schutz"], "answer": 3, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.29", "type": "list-neg"}, {"q": "Zu welcher Kategorie gehört folgender Punkt: „Ggf. mit Security Gateway zum Virenschutz Cyber-und Informationsraum / Ausbildungszentrum CIR Informationssicherheit Offen 32“?", "options": ["Bedrohungsarten", "• Sonderstellung", "Hauptfunktionen", "Cyberbedrohungen"], "answer": 2, "meta": "2026-01-14_OFFEN_Schutzkonzepte_6UE.pdf S.29", "type": "class"}, {"q": "Welche Reihenfolge entspricht der Cyber Kill Chain?", "options": ["Reconnaissance → Delivery → Weaponization → Exploitation → Installation → Command & Control → Actions on Objectives", "Reconnaissance → Weaponization → Delivery → Exploitation → Installation → Command & Control → Actions on Objectives", "Reconnaissance → Weaponization → Delivery → Installation → Exploitation → Command & Control → Actions on Objectives", "Weaponization → Reconnaissance → Delivery → Exploitation → Installation → Command & Control → Actions on Objectives"], "answer": 1, "meta": "Kill Chain", "type": "seq"}]};
-const KEY_EXAM = "infosichh_exam_v1";   // stores selected indices + answers
+/* ÜBERARBEITETER FRAGENKATALOG (BANK)
+   - Parsing-Fehler entfernt
+   - Abkürzungen erklärt
+   - Antwortlogik korrigiert
+*/
+const BANK = {
+  "title": "Leistungsnachweis – Informationssicherheit (Clean)",
+  "passMark": 65,
+  "examSize": 30, 
+  "questions": [
+    // --- MALWARE & ANGRIFFSTYPEN ---
+    {
+      "q": "Was ist das Hauptmerkmal eines „Computervirus“ im Unterschied zu einem Wurm?",
+      "options": [
+        "Es benötigt ein Wirtsprogramm, um sich zu verbreiten.",
+        "Es repliziert sich eigenständig über das Netzwerk ohne Wirt.",
+        "Es tarnt sich immer als nützliche Software.",
+        "Es verschlüsselt nur Daten, ohne sich zu verbreiten."
+      ],
+      "answer": 0,
+      "meta": "Malware-Definitionen"
+    },
+    {
+      "q": "Was kennzeichnet einen „Wurm“ (Computer Worm)?",
+      "options": [
+        "Er benötigt zwingend eine Benutzerinteraktion zum Starten.",
+        "Er ist selbstreplizierend und verbreitet sich eigenständig über Netzwerke.",
+        "Er tarnt sich als legitime Anwendung (z. B. Bildschirmschoner).",
+        "Er infiziert ausschließlich Hardware-Komponenten."
+      ],
+      "answer": 1,
+      "meta": "Malware-Definitionen"
+    },
+    {
+      "q": "Was versteht man unter einem „Trojaner“?",
+      "options": [
+        "Ein Programm, das sich exponentiell im RAM vervielfältigt.",
+        "Malware, die sich als nützliche Anwendung tarnt, aber im Hintergrund Schadfunktionen ausführt.",
+        "Ein Fehler im Betriebssystemcode.",
+        "Eine Firewall-Regel, die zu streng eingestellt ist."
+      ],
+      "answer": 1,
+      "meta": "Malware-Definitionen"
+    },
+    {
+      "q": "Was bedeutet die Abkürzung DoS in der IT-Sicherheit?",
+      "options": [
+        "Disk Operating System",
+        "Denial of Service (Verweigerung des Dienstes durch Überlastung)",
+        "Download over Security",
+        "Data on Server"
+      ],
+      "answer": 1,
+      "meta": "Angriffsarten"
+    },
+    {
+      "q": "Was ist der Unterschied zwischen DoS und DDoS?",
+      "options": [
+        "DoS greift nur Datenbanken an, DDoS greift Webserver an.",
+        "Bei DoS erfolgt der Angriff von einer Quelle, bei DDoS (Distributed) koordiniert von vielen Quellen.",
+        "DDoS ist harmloser als DoS.",
+        "Es gibt keinen technischen Unterschied."
+      ],
+      "answer": 1,
+      "meta": "Angriffsarten"
+    },
+    {
+      "q": "Was beschreibt ein DRDoS-Angriff (Distributed Reflected Denial of Service)?",
+      "options": [
+        "Ein Angriff, bei dem der Angreifer physisch in den Serverraum eindringt.",
+        "Ein Angriff, bei dem Anfragen mit gefälschter Absender-IP an unbeteiligte Server (Reflektoren) gesendet werden, die dann massenhaft an das Opfer antworten.",
+        "Das Löschen von Backups auf Spiegelservern.",
+        "Ein Virus, der den Bildschirm spiegelt."
+      ],
+      "answer": 1,
+      "meta": "Angriffsarten"
+    },
+    
+    // --- SCHWACHSTELLEN & DATENBANKEN ---
+    {
+      "q": "Was ist „CVE“ (Common Vulnerabilities and Exposures)?",
+      "options": [
+        "Eine Anti-Viren-Software.",
+        "Ein internationaler Standard zur eindeutigen Benennung und Auflistung bekannter Sicherheitslücken.",
+        "Ein Gesetz zum Schutz von Computerdaten.",
+        "Eine Zertifizierungsstelle für Webseiten."
+      ],
+      "answer": 1,
+      "meta": "Schwachstellen-Management"
+    },
+    {
+      "q": "Was ist die „NVD“ (National Vulnerability Database)?",
+      "options": [
+        "Eine Datenbank der US-Regierung, die auf CVE basiert und zusätzliche Analysen (z.B. CVSS-Scores) bereitstellt.",
+        "Ein Verzeichnis aller Regierungsmitarbeiter.",
+        "Ein Netzwerk-Visualisierungs-Dienst.",
+        "Eine Liste verbotener Passwörter."
+      ],
+      "answer": 0,
+      "meta": "Schwachstellen-Management"
+    },
+
+    // --- SOCIAL ENGINEERING ---
+    {
+      "q": "Was versteht man unter „Social Engineering“?",
+      "options": [
+        "Das technische Hacken von Firewalls.",
+        "Die zwischenmenschliche Manipulation von Personen, um an vertrauliche Informationen zu gelangen.",
+        "Das Programmieren von sozialen Netzwerken.",
+        "Die Wartung von Serverräumen."
+      ],
+      "answer": 1,
+      "meta": "Human Factor"
+    },
+    {
+      "q": "Was ist „Phishing“?",
+      "options": [
+        "Das physische Stehlen von Festplatten.",
+        "Versuch, über gefälschte E-Mails oder Webseiten an sensible Daten (Passwörter, Kreditkarten) zu gelangen.",
+        "Ein spezielles Verfahren zur Kühlung von Servern.",
+        "Das Ausnutzen von WLAN-Schwachstellen."
+      ],
+      "answer": 1,
+      "meta": "Social Engineering"
+    },
+    {
+      "q": "Was bezeichnet der Begriff „Spear-Phishing“?",
+      "options": [
+        "Ein breiter Angriff auf Millionen von zufälligen E-Mail-Adressen.",
+        "Ein gezielter Phishing-Angriff auf eine bestimmte Person oder Organisation mit maßgeschneiderten Inhalten.",
+        "Phishing per SMS.",
+        "Phishing per Telefonanruf."
+      ],
+      "answer": 1,
+      "meta": "Social Engineering"
+    },
+    {
+      "q": "Was ist „Vishing“?",
+      "options": [
+        "Video-Phishing über Webcams.",
+        "Voice Phishing: Der Versuch, Informationen per Telefonanruf zu stehlen.",
+        "Virtual Phishing in VR-Umgebungen.",
+        "Virus-Fishing: Das Suchen nach Viren."
+      ],
+      "answer": 1,
+      "meta": "Social Engineering"
+    },
+    {
+      "q": "Was ist „Smishing“?",
+      "options": [
+        "Phishing per SMS oder Messenger-Diensten.",
+        "Smart Phishing durch KI.",
+        "Small Phishing (nur kleine Beträge).",
+        "Server Mismatching."
+      ],
+      "answer": 0,
+      "meta": "Social Engineering"
+    },
+    {
+      "q": "Was bedeutet „CEO-Fraud“ (auch BEC - Business Email Compromise)?",
+      "options": [
+        "Der Diebstahl des Laptops des Geschäftsführers.",
+        "Ein Betrug, bei dem sich Angreifer als Führungskraft ausgeben, um Mitarbeiter zu eiligen Überweisungen zu drängen.",
+        "Die Fälschung von Geschäftsberichten.",
+        "Ein Angriff auf die Börsenkurse."
+      ],
+      "answer": 1,
+      "meta": "Social Engineering"
+    },
+    {
+      "q": "Welche menschliche Eigenschaft wird beim Social Engineering oft ausgenutzt (Stichwort: CEO-Fraud)?",
+      "options": [
+        "Respekt vor Autorität und Zeitdruck.",
+        "Das technische Verständnis.",
+        "Die Langeweile.",
+        "Die Pünktlichkeit."
+      ],
+      "answer": 0,
+      "meta": "Psychologie"
+    },
+    {
+      "q": "Was ist „Doxing“?",
+      "options": [
+        "Das Erstellen von Dokumentationen.",
+        "Das gezielte Sammeln und Veröffentlichen privater Daten einer Person, um ihr zu schaden.",
+        "Ein Update-Vorgang für Docker-Container.",
+        "Das Löschen von Dokumenten."
+      ],
+      "answer": 1,
+      "meta": "Bedrohungen"
+    },
+
+    // --- NETZWERK & INFRASTRUKTUR ---
+    {
+      "q": "Was ist die Hauptaufgabe einer „Firewall“?",
+      "options": [
+        "Sie kühlt das System bei Überhitzung.",
+        "Sie überwacht und kontrolliert den ein- und ausgehenden Netzwerkverkehr basierend auf Sicherheitsregeln.",
+        "Sie beschleunigt die Internetgeschwindigkeit.",
+        "Sie dient ausschließlich als Virenscanner."
+      ],
+      "answer": 1,
+      "meta": "Schutzmaßnahmen"
+    },
+    {
+      "q": "Was macht ein „Proxy-Server“?",
+      "options": [
+        "Er dient als Vermittler zwischen Client und Zielserver (maskiert oft die IP des Clients).",
+        "Er speichert Passwörter im Klartext.",
+        "Er ist ein direkter Ersatz für ein Antivirenprogramm.",
+        "Er verbindet zwei Monitore miteinander."
+      ],
+      "answer": 0,
+      "meta": "Infrastruktur"
+    },
+    {
+      "q": "Was bedeutet „Zero Trust“?",
+      "options": [
+        "Man vertraut keinem Antiviren-Hersteller.",
+        "Sicherheitskonzept: „Vertraue niemandem, verifiziere alles“ – auch innerhalb des eigenen Netzwerks.",
+        "Ein Netzwerk ohne Benutzer.",
+        "Eine Firewall-Einstellung, die alles blockiert."
+      ],
+      "answer": 1,
+      "meta": "Sicherheitsstrategien"
+    },
+    {
+      "q": "Welche Phase gehört zur „Cyber Kill Chain“?",
+      "options": [
+        "Reconnaissance (Ausspähen / Aufklärung)",
+        "Reinstallation (Neuinstallation)",
+        "Refunding (Rückerstattung)",
+        "Rebooting (Neustart)"
+      ],
+      "answer": 0,
+      "meta": "Kill Chain"
+    },
+    {
+      "q": "Was ist die korrekte Reihenfolge der Cyber Kill Chain (vereinfacht)?",
+      "options": [
+        "Exploitation -> Reconnaissance -> Delivery",
+        "Actions on Objectives -> Installation -> Delivery",
+        "Reconnaissance (Aufklärung) -> Weaponization (Bewaffnung) -> Delivery (Zustellung) -> Exploitation (Ausnutzung)",
+        "Installation -> Reconnaissance -> Weaponization"
+      ],
+      "answer": 2,
+      "meta": "Kill Chain"
+    },
+
+    // --- DATENSCHUTZ & RECHT ---
+    {
+      "q": "Was regelt die DSGVO (Datenschutz-Grundverordnung)?",
+      "options": [
+        "Die Verschlüsselung von militärischen Daten.",
+        "Den Schutz personenbezogener Daten von EU-Bürgern bei der Verarbeitung.",
+        "Die Preise für IT-Dienstleistungen.",
+        "Die Urheberrechte von Software."
+      ],
+      "answer": 1,
+      "meta": "Recht / DSGVO"
+    },
+    {
+      "q": "Welche Daten gehören laut DSGVO zu den „besonderen Kategorien“ (besonders schützenswert)?",
+      "options": [
+        "E-Mail-Adressen und Telefonnummern.",
+        "Gesundheitsdaten, politische Meinungen, religiöse Überzeugung, biometrische Daten.",
+        "KFZ-Kennzeichen und Wohnadresse.",
+        "Personalnummer und Büronummer."
+      ],
+      "answer": 1,
+      "meta": "Recht / DSGVO"
+    },
+    {
+      "q": "Was ist „VS-NfD“ (im behördlichen Kontext)?",
+      "options": [
+        "Verschlusssache – Nur für den Dienstgebrauch.",
+        "Virenschutz – Nur für Deutschland.",
+        "Verschlüsselung – Nicht für Dritte.",
+        "Virtuelle Sicherheit – Nach freiem Dienst."
+      ],
+      "answer": 0,
+      "meta": "Klassifizierung"
+    },
+    {
+      "q": "Was ist das Ziel von „Abstrahlsicherheit“ (z.B. TEMPEST)?",
+      "options": [
+        "Schutz vor radioaktiver Strahlung.",
+        "Verhinderung des unbefugten Abfangens von kompromittierenden elektromagnetischen Emissionen (z.B. durch Monitore oder Kabel).",
+        "Schutz vor zu heller Bildschirmstrahlung für die Augen.",
+        "Abschirmung gegen WLAN-Störsignale für besseren Empfang."
+      ],
+      "answer": 1,
+      "meta": "Physische Sicherheit"
+    },
+    
+    // --- ALLGEMEINE KONZEPTE ---
+    {
+      "q": "Was sind die drei Grundwerte der Informationssicherheit (CIA-Triade)?",
+      "options": [
+        "Computer, Internet, Algorithmen.",
+        "Confidentiality (Vertraulichkeit), Integrity (Integrität), Availability (Verfügbarkeit).",
+        "Control, Intelligence, Authentication.",
+        "Cash, Insurance, Assets."
+      ],
+      "answer": 1,
+      "meta": "Grundlagen"
+    },
+    {
+      "q": "Was bedeutet „Integrität“ in der Informationssicherheit?",
+      "options": [
+        "Daten sind vor unbefugtem Zugriff geschützt.",
+        "Daten sind vollständig und unverändert (nicht manipuliert).",
+        "Das System ist jederzeit erreichbar.",
+        "Die Hardware ist neuwertig."
+      ],
+      "answer": 1,
+      "meta": "Grundlagen"
+    },
+    {
+      "q": "Was ist ein „Exploit“?",
+      "options": [
+        "Ein Software-Update, das Fehler behebt.",
+        "Ein Code oder Skript, das eine spezifische Schwachstelle in Software oder Hardware ausnutzt.",
+        "Ein Begriff für legale Software-Nutzung.",
+        "Ein besonders leistungsfähiger Server."
+      ],
+      "answer": 1,
+      "meta": "Begriffe"
+    },
+    {
+      "q": "Was ist Ransomware?",
+      "options": [
+        "Software, die den Computer schneller macht.",
+        "Schadsoftware, die Daten verschlüsselt und ein Lösegeld für die Entschlüsselung fordert.",
+        "Software zum zufälligen Löschen von Dateien.",
+        "Ein Tool zur Fernwartung."
+      ],
+      "answer": 1,
+      "meta": "Malware-Arten"
+    },
+    {
+      "q": "Was versteht man unter „APT“ (Advanced Persistent Threat)?",
+      "options": [
+        "Einen einfachen, automatisierten Virus.",
+        "Einen komplexen, zielgerichteten und dauerhaften Angriff, oft durch staatliche Akteure oder kriminelle Gruppen.",
+        "Ein Programm zur automatischen Prozess-Terminierung.",
+        "Allgemeine PC-Technik."
+      ],
+      "answer": 1,
+      "meta": "Bedrohungsakteure"
+    }
+  ]
+};
+
+const KEY_EXAM = "infosichh_exam_clean_v1"; // New key to avoid conflict with old data
 let solutionsEnabled = false;
 
 function randShuffle(arr) {
@@ -143,10 +495,13 @@ function newExam() {
   const total = BANK.questions.length;
   const idxs = Array.from({length: total}, (_, i) => i);
   randShuffle(idxs);
-  const selected = idxs.slice(0, BANK.examSize);
+  // Ensure we don't ask for more questions than we have
+  const size = Math.min(BANK.examSize, total);
+  const selected = idxs.slice(0, size);
+  
   const exam = {
     selected,
-    answers: {},      // qIndex -> picked option index
+    answers: {},
     submitted: false,
     submittedAt: null
   };
@@ -180,9 +535,11 @@ function render() {
     return;
   }
 
+  const examLen = exam.selected.length;
+
   if (!exam.submitted) {
     const answered = Object.keys(exam.answers || {}).length;
-    const missing = BANK.examSize - answered;
+    const missing = examLen - answered;
     if (missing === 0) {
       setStatus("good", "Bereit:", "Alle Fragen beantwortet. Du kannst jetzt <strong>„Prüfung abgeben“</strong> klicken.");
     } else {
@@ -203,7 +560,7 @@ function render() {
     head.className = "qhead";
 
     const left = document.createElement("div");
-    left.innerHTML = `<div class="qnum">Frage ${pos + 1} / ${exam.selected.length}</div>
+    left.innerHTML = `<div class="qnum">Frage ${pos + 1} / ${examLen}</div>
                       <div class="qtext">${item.q}</div>`;
 
     const right = document.createElement("div");
@@ -233,9 +590,9 @@ function render() {
         ex.answers[qid] = oidx;
         saveExam(ex);
         updateCounters(ex);
-        // don't re-render whole page on every click
+        
         const answered = Object.keys(ex.answers || {}).length;
-        const missing = BANK.examSize - answered;
+        const missing = ex.selected.length - answered;
         if (missing === 0) {
           setStatus("good", "Bereit:", "Alle Fragen beantwortet. Du kannst jetzt <strong>„Prüfung abgeben“</strong> klicken.");
         } else {
@@ -273,9 +630,11 @@ function submitExam() {
   const exam = loadExam();
   if (!exam || exam.submitted) return;
 
+  const examLen = exam.selected.length;
   const answered = Object.keys(exam.answers || {}).length;
-  if (answered < BANK.examSize) {
-    if (!confirm(`Es sind noch ${BANK.examSize - answered} Frage(n) unbeantwortet. Trotzdem abgeben?`)) return;
+  
+  if (answered < examLen) {
+    if (!confirm(`Es sind noch ${examLen - answered} Frage(n) unbeantwortet. Trotzdem abgeben?`)) return;
   }
 
   let correct = 0;
@@ -286,7 +645,7 @@ function submitExam() {
     if (picked === item.answer) correct++;
   });
 
-  const percent = Math.round((correct / BANK.examSize) * 1000) / 10; // one decimal
+  const percent = Math.round((correct / examLen) * 1000) / 10;
   const passed = percent >= BANK.passMark;
 
   exam.submitted = true;
@@ -295,9 +654,8 @@ function submitExam() {
 
   const kind = passed ? "good" : "bad";
   const verdict = passed ? "BESTANDEN" : "NICHT BESTANDEN";
-  setStatus(kind, "Ergebnis:", `<strong>${correct} / ${BANK.examSize}</strong> richtig = <strong>${percent}%</strong> → <strong>${verdict}</strong> (Grenze: ${BANK.passMark}%).`);
+  setStatus(kind, "Ergebnis:", `<strong>${correct} / ${examLen}</strong> richtig = <strong>${percent}%</strong> → <strong>${verdict}</strong> (Grenze: ${BANK.passMark}%).`);
 
-  // lock UI + optionally show solutions
   solutionsEnabled = document.getElementById("showSolutions").checked === true;
   document.getElementById("btnSubmit").disabled = true;
   render();
@@ -319,7 +677,6 @@ document.getElementById("showSolutions").addEventListener("change", () => {
   if (exam && exam.submitted) render();
 });
 
-// Auto-load existing exam on refresh
 render();
 </script>
 </body>
