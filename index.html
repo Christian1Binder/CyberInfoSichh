@@ -2,66 +2,82 @@
 <html lang="de">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<title>CyberOffz: Trainer & Prüfung</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0f172a">
+<title>CyberOffz: Ultimate Trainer</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%231e293b%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-size=%2270%22>🛡️</text></svg>">
+
 <style>
 :root {
   --bg: #0f172a; --panel: #1e293b; --text: #f1f5f9; --muted: #94a3b8;
   --accent: #3b82f6; --success: #22c55e; --error: #ef4444; --border: rgba(255,255,255,0.1);
   --warning: #f59e0b;
 }
-body { margin:0; font-family:'Segoe UI', Roboto, sans-serif; background:var(--bg); color:var(--text); height:100vh; display:flex; flex-direction:column; overflow:hidden; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { margin:0; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background:var(--bg); color:var(--text); height:100vh; display:flex; flex-direction:column; overflow:hidden; }
 
 /* UTILS */
-.wrap { width:100%; max-width:850px; margin:0 auto; padding:20px; flex:1; display:flex; flex-direction:column; position:relative; }
-.scroll-wrap { overflow-y:auto; flex:1; padding-bottom:40px; }
+.wrap { width:100%; max-width:850px; margin:0 auto; padding:20px; padding-bottom:100px; flex:1; display:flex; flex-direction:column; position:relative; }
+.scroll-wrap { overflow-y:auto; flex:1; -webkit-overflow-scrolling: touch; }
 .hidden { display:none !important; }
-.btn { border:none; padding:12px 20px; border-radius:8px; font-weight:bold; cursor:pointer; font-size:1rem; color:white; transition:0.2s; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
-.btn:hover { filter:brightness(1.1); }
-.btn-primary { background:var(--accent); }
-.btn-exam { background:var(--warning); color:#000; }
-.btn-outline { background:transparent; border:1px solid var(--border); color:var(--muted); }
-.btn-outline:hover { border-color:var(--text); color:var(--text); }
 h1, h2, h3 { margin:0 0 10px 0; }
 
+/* BUTTONS */
+.btn { border:none; padding:14px 20px; border-radius:12px; font-weight:bold; cursor:pointer; font-size:1rem; color:white; transition:0.2s; display:inline-flex; align-items:center; justify-content:center; gap:8px; touch-action: manipulation; }
+.btn:active { transform:scale(0.98); }
+.btn-primary { background:var(--accent); box-shadow:0 4px 12px rgba(59,130,246,0.3); }
+.btn-exam { background:var(--warning); color:#000; }
+.btn-outline { background:transparent; border:1px solid var(--border); color:var(--muted); }
+.btn-block { width:100%; }
+
 /* START SCREEN */
-#start-screen { text-align:center; justify-content:center; }
-.mode-card { background:var(--panel); border:1px solid var(--border); padding:20px; border-radius:12px; margin-bottom:15px; text-align:left; cursor:pointer; transition:0.2s; display:flex; justify-content:space-between; align-items:center; }
-.mode-card:hover { border-color:var(--accent); background:rgba(255,255,255,0.03); }
-.tag { font-size:0.75rem; padding:2px 8px; border-radius:4px; background:rgba(255,255,255,0.1); font-weight:bold; }
+#start-screen { text-align:center; }
+.mode-card { background:var(--panel); border:1px solid var(--border); padding:20px; border-radius:16px; margin-bottom:15px; text-align:left; cursor:pointer; transition:0.2s; display:flex; justify-content:space-between; align-items:center; }
+.mode-card:active { background:rgba(255,255,255,0.05); border-color:var(--accent); }
+.tag { font-size:0.75rem; padding:4px 8px; border-radius:6px; background:rgba(255,255,255,0.1); font-weight:bold; }
 
 /* TRAINER MODE */
 .top-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; font-size:0.9rem; color:var(--muted); }
-.streak-box { color:var(--accent); font-weight:bold; }
-.progress-track { height:6px; background:rgba(255,255,255,0.1); border-radius:3px; overflow:hidden; margin-bottom:20px; }
+.streak-box { color:var(--accent); font-weight:bold; font-size:1.1rem; }
+.progress-track { height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden; margin-bottom:20px; }
 .progress-fill { height:100%; background:var(--accent); width:0%; transition:width 0.3s; }
-.card { background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:30px; display:flex; flex-direction:column; gap:20px; box-shadow:0 10px 30px rgba(0,0,0,0.3); }
-.q-meta { font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); font-weight:bold; }
-.q-text { font-size:1.4rem; line-height:1.4; font-weight:600; }
-.opt-grid { display:grid; gap:10px; }
-.opt-btn { background:rgba(255,255,255,0.05); border:1px solid var(--border); padding:15px; border-radius:10px; color:var(--text); text-align:left; cursor:pointer; transition:0.1s; display:flex; align-items:center; }
-.opt-btn:hover:not(.disabled) { background:rgba(255,255,255,0.1); border-color:var(--accent); }
-.opt-key { background:rgba(0,0,0,0.3); width:24px; height:24px; display:flex; align-items:center; justify-content:center; border-radius:4px; margin-right:12px; font-size:0.8rem; font-family:monospace; border:1px solid var(--border); color:var(--muted); }
+.card { background:var(--panel); border:1px solid var(--border); border-radius:20px; padding:25px; display:flex; flex-direction:column; gap:20px; box-shadow:0 10px 30px rgba(0,0,0,0.3); margin-bottom:20px; }
+.q-meta { font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); font-weight:bold; }
+.q-text { font-size:1.35rem; line-height:1.45; font-weight:700; }
+.opt-grid { display:grid; gap:12px; }
+.opt-btn { background:rgba(255,255,255,0.05); border:1px solid var(--border); padding:18px; border-radius:12px; color:var(--text); text-align:left; cursor:pointer; transition:0.1s; display:flex; align-items:center; min-height:60px; }
+.opt-btn:active:not(.disabled) { background:rgba(255,255,255,0.1); transform:scale(0.99); }
+.opt-key { background:rgba(0,0,0,0.3); width:28px; height:28px; display:flex; align-items:center; justify-content:center; border-radius:6px; margin-right:15px; font-size:0.9rem; font-family:monospace; border:1px solid var(--border); color:var(--muted); flex-shrink:0; }
 .opt-btn.correct { background:rgba(34,197,94,0.15); border-color:var(--success); color:var(--success); }
 .opt-btn.wrong { background:rgba(239,68,68,0.15); border-color:var(--error); color:var(--error); opacity:0.6; }
 .opt-btn.disabled { pointer-events:none; }
 
 /* EXPLANATION BOX */
-.expl-box { padding:15px; border-radius:8px; margin-top:0px; display:none; animation:fadeIn 0.3s; font-size:0.95rem; line-height:1.5; border-left:4px solid transparent; }
-.expl-box.is-correct { background:rgba(34,197,94,0.1); border-left-color:var(--success); }
-.expl-box.is-wrong { background:rgba(239,68,68,0.1); border-left-color:var(--error); }
+.expl-box { padding:15px; border-radius:12px; margin-top:0px; display:none; animation:fadeIn 0.3s; font-size:0.95rem; line-height:1.5; border-left:4px solid transparent; background:rgba(0,0,0,0.2); }
+.expl-box.is-correct { border-left-color:var(--success); }
+.expl-box.is-wrong { border-left-color:var(--error); }
 .expl-title { font-weight:bold; margin-bottom:5px; display:block; }
+
+/* NEXT BUTTON FOOTER */
+.bottom-nav { position:fixed; bottom:0; left:0; width:100%; background:rgba(15, 23, 42, 0.95); backdrop-filter:blur(10px); padding:15px 20px; border-top:1px solid var(--border); z-index:100; display:flex; justify-content:center; transform:translateY(100%); transition:transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); padding-bottom:max(15px, env(safe-area-inset-bottom)); }
+.bottom-nav.visible { transform:translateY(0); }
+.btn-next { width:100%; max-width:600px; font-size:1.1rem; padding:16px; }
 
 /* EXAM MODE */
 .exam-item { background:var(--panel); padding:20px; border-radius:12px; border:1px solid var(--border); margin-bottom:15px; }
 .exam-q { font-size:1.1rem; font-weight:600; margin-bottom:15px; }
-.exam-opt { display:flex; align-items:start; gap:10px; padding:8px 0; cursor:pointer; }
-.exam-opt input { margin-top:5px; transform:scale(1.2); }
+.exam-opt { display:flex; align-items:start; gap:15px; padding:12px; cursor:pointer; border-radius:8px; transition:background 0.2s; }
+.exam-opt:active { background:rgba(255,255,255,0.05); }
+.exam-opt input { margin-top:4px; transform:scale(1.3); }
 .exam-expl { margin-top:15px; padding-top:15px; border-top:1px solid var(--border); color:var(--muted); font-size:0.9rem; display:none; }
 .exam-item.graded-correct { border-color:var(--success); }
 .exam-item.graded-wrong { border-color:var(--error); }
 .exam-item.graded-correct .exam-expl, .exam-item.graded-wrong .exam-expl { display:block; }
-.exam-score-box { background:var(--panel); padding:20px; border-radius:12px; margin-bottom:20px; text-align:center; border:1px solid var(--border); }
+.exam-score-box { background:var(--panel); padding:30px; border-radius:20px; margin-bottom:20px; text-align:center; border:1px solid var(--border); }
 
 @keyframes fadeIn { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
 </style>
@@ -69,21 +85,22 @@ h1, h2, h3 { margin:0 0 10px 0; }
 <body>
 
 <div id="start-screen" class="wrap scroll-wrap">
-    <div style="margin:40px 0;">
+    <div style="margin:40px 0; text-align:center;">
+        <div style="font-size:3rem; margin-bottom:10px;">🛡️</div>
         <h1>CyberOffz Lernportal</h1>
         <p style="color:var(--muted)">Wähle deinen Modus.</p>
     </div>
     <div class="mode-card" onclick="initTrainer('ALL')">
         <div>
             <h3>🚀 Speed-Trainer (Alles)</h3>
-            <div style="color:var(--muted); font-size:0.9rem;">Karteikarten • Sofort-Feedback • Erklärungen</div>
+            <div style="color:var(--muted); font-size:0.85rem; margin-top:5px;">Karteikarten • Sofort-Feedback • Vibra</div>
         </div>
         <div class="tag" style="background:var(--accent)">LERNEN</div>
     </div>
     <div class="mode-card" onclick="initExam()">
         <div>
-            <h3>📝 Prüfungsmodus (45 Fragen)</h3>
-            <div style="color:var(--muted); font-size:0.9rem;">Listenansicht • Auswertung am Ende</div>
+            <h3>📝 Prüfungsmodus (45)</h3>
+            <div style="color:var(--muted); font-size:0.85rem; margin-top:5px;">Listenansicht • Ernstfall • Note</div>
         </div>
         <div class="tag" style="background:var(--warning); color:#000;">TEST</div>
     </div>
@@ -91,12 +108,13 @@ h1, h2, h3 { margin:0 0 10px 0; }
     <div id="module-list" style="display:grid; grid-template-columns:1fr 1fr; gap:10px;"></div>
 </div>
 
-<div id="trainer-screen" class="wrap hidden">
+<div id="trainer-screen" class="wrap scroll-wrap hidden">
     <div class="top-bar">
-        <button class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" onclick="location.reload()">Beenden</button>
-        <div class="streak-box">🔥 Streak: <span id="t-streak">0</span></div>
+        <button class="btn btn-outline" style="padding:6px 12px; font-size:0.8rem;" onclick="location.reload()">Beenden</button>
+        <div class="streak-box">🔥 <span id="t-streak">0</span></div>
     </div>
     <div class="progress-track"><div id="t-progress" class="progress-fill"></div></div>
+    
     <div class="card">
         <div class="q-meta">
             <span id="t-mod">MODUL</span> • <span id="t-idx">1/10</span>
@@ -104,30 +122,34 @@ h1, h2, h3 { margin:0 0 10px 0; }
         </div>
         <div class="q-text" id="t-question"></div>
         <div class="opt-grid" id="t-options"></div>
+        
         <div id="t-expl" class="expl-box">
             <span class="expl-title" id="t-expl-title"></span>
             <span id="t-expl-text"></span>
         </div>
     </div>
-    <div style="text-align:center; margin-top:20px; color:var(--muted); font-size:0.8rem;">
-        <span class="kbd">1-4</span> Antwort • <span class="kbd">Leertaste</span> Weiter
-    </div>
+    
+    <div style="height:80px;"></div>
 </div>
 
-<div id="exam-screen" class="wrap hidden scroll-wrap">
+<div id="trainer-footer" class="bottom-nav">
+    <button class="btn btn-primary btn-next" onclick="nextCard()">Nächste Frage ➔</button>
+</div>
+
+<div id="exam-screen" class="wrap scroll-wrap hidden">
     <div class="top-bar">
         <button class="btn btn-outline" onclick="if(confirm('Prüfung abbrechen?')) location.reload()">Abbrechen</button>
         <div>Prüfungssimulation</div>
     </div>
     <div id="exam-result-header" class="hidden"></div>
     <div id="exam-list"></div>
-    <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border);">
-        <button id="btn-submit-exam" class="btn btn-primary" style="width:100%;" onclick="submitExam()">Prüfung abgeben</button>
+    <div style="margin-top:30px; padding-top:20px; border-top:1px solid var(--border);">
+        <button id="btn-submit-exam" class="btn btn-primary btn-block" style="padding:18px; font-size:1.1rem;" onclick="submitExam()">Prüfung jetzt abgeben</button>
     </div>
 </div>
 
 <script>
-/* --- VOLLSTÄNDIGE DATENBANK (BEREINIGT & ERGÄNZT) --- */
+/* --- 96 FRAGEN DATENBANK --- */
 const BANK = [
     // --- GRUNDLAGEN ---
     { q: "Welches Schutzziel wird verletzt, wenn ein Angreifer eine Webseite so überlastet, dass sie nicht mehr erreichbar ist?", a: "Verfügbarkeit", e: "Verfügbarkeit garantiert den Zugriff. DDoS-Angriffe zielen darauf ab, genau diesen Zugriff zu unterbinden.", o: ["Vertraulichkeit", "Verfügbarkeit", "Integrität", "Authentizität"], m: "GRUNDLAGEN" },
@@ -200,7 +222,7 @@ const BANK = [
     { q: "Was muss geschehen, wenn ein Gerät mit MEP-Plakette repariert wurde (Gehäuseöffnung)?", a: "Es muss eine neue Kurzvermessung durchgeführt werden.", e: "Das Öffnen des Gehäuses kann die Schirmung beschädigen.", o: ["Nichts", "Es muss weggeworfen werden", "Es muss eine neue Kurzvermessung durchgeführt werden.", "Es muss nur neu gestartet werden"], m: "ABSTRAHLUNG" },
     { q: "Was beschreibt der Begriff 'Kompromittierende Strahlung'?", a: "Ungewollte elektromagnetische Emissionen, die den Informationsgehalt verraten.", e: "Das Signal 'leckt' aus dem Kabel oder Monitor in die Luft.", o: ["Radioaktive Strahlung aus Monitoren", "Strahlung, die Hardware zerstört", "Ungewollte elektromagnetische Emissionen, die den Informationsgehalt verraten.", "WLAN-Signale, die das Internet verlangsamen"], m: "ABSTRAHLUNG" },
 
-    // --- KRYPTOSICHERHEIT (ERWEITERT) ---
+    // --- KRYPTOSICHERHEIT ---
     { q: "Wo befindet sich die NDA (National Distribution Agency) der Bundeswehr?", a: "Rheinbach", e: "Das IT-Zentrum Bw in Rheinbach ist die zentrale Verteilstelle für Schlüssel in DEU.", o: ["Bonn", "Berlin", "Rheinbach", "München"], m: "KRYPTO" },
     { q: "Welches Krypto-ATZ ist für den Bereich NORD zuständig?", a: "Wilhelmshaven (Kryptozentrum Marine)", e: "ATZ (Austauschzentren) sind regional verteilt. WHV versorgt den Norden/Marine.", o: ["Kiel", "Rostock", "Wilhelmshaven (Kryptozentrum Marine)", "Oldenburg"], m: "KRYPTO" },
     { q: "Wer darf die Vernichtung von Kryptomitteln durchführen?", a: "Der Kryptoverwalter in Anwesenheit eines Zeugen.", e: "Vier-Augen-Prinzip ist Pflicht. Vernichtung muss protokolliert werden.", o: ["Jeder Soldat", "Nur der IT-Offizier", "Der Kryptoverwalter in Anwesenheit eines Zeugen.", "Nur externes Fachpersonal"], m: "KRYPTO" },
@@ -251,6 +273,8 @@ function initTrainer(filter) {
     isExam = false;
     document.getElementById('start-screen').classList.add('hidden');
     document.getElementById('trainer-screen').classList.remove('hidden');
+    document.getElementById('trainer-footer').classList.remove('hidden'); // Footer aktivieren
+    
     if(filter === 'ALL') activeSet = [...BANK];
     else activeSet = BANK.filter(x => x.m === filter);
     shuffle(activeSet);
@@ -262,6 +286,9 @@ function initTrainer(filter) {
 }
 
 function loadCard() {
+    // Nav Button verstecken
+    document.getElementById('trainer-footer').classList.remove('visible');
+
     if(currentIndex >= activeSet.length) {
         if(retryStack.length > 0) {
             alert(`Runde beendet. ${retryStack.length} Fehler wiederholen!`);
@@ -306,6 +333,12 @@ function checkTrainerAnswer(btn, isCorrect, item) {
     document.getElementById('t-expl-title').innerText = isCorrect ? "✓ Richtig!" : "✗ Leider falsch.";
     document.getElementById('t-expl-text').innerText = item.e;
     
+    // Haptik (Vibration)
+    if(navigator.vibrate) {
+        if(!isCorrect) navigator.vibrate(200); // Lang bei Fehler
+        else navigator.vibrate(50); // Kurz bei Erfolg
+    }
+
     if(isCorrect) {
         btn.classList.add('correct');
         streak++;
@@ -318,6 +351,9 @@ function checkTrainerAnswer(btn, isCorrect, item) {
         });
     }
     updateStreak();
+    
+    // Footer Button anzeigen
+    document.getElementById('trainer-footer').classList.add('visible');
 }
 
 function nextCard() {
@@ -336,6 +372,8 @@ function initExam() {
     isExam = true;
     document.getElementById('start-screen').classList.add('hidden');
     document.getElementById('exam-screen').classList.remove('hidden');
+    document.getElementById('trainer-footer').classList.add('hidden'); // Footer aus
+    
     let pool = [...BANK];
     shuffle(pool);
     activeSet = pool.slice(0, 45);
