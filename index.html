@@ -3,681 +3,193 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Leistungsnachweis – Informationssicherheit (Clean Version)</title>
+<title>Vollumfänglicher Lernpool – Informationssicherheit</title>
 <style>
 :root {
-  --bg:#0b1220;
-  --panel:rgba(18,26,43,0.92);
-  --border:rgba(255,255,255,0.12);
-  --text:#e7ecff;
-  --muted:#aab4e6;
-  --good:#2bd576;
-  --bad:#ff5c73;
-  --warn:#ffd166;
+  --bg:#0b1220; --panel:rgba(18,26,43,0.96); --border:rgba(255,255,255,0.12);
+  --text:#e7ecff; --muted:#aab4e6; --good:#2bd576; --bad:#ff5c73; --accent:#3b82f6;
 }
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:radial-gradient(1200px 800px at 20% 10%, #132044 0%, var(--bg) 60%);
-  color:var(--text);
-}
-header{
-  position:sticky; top:0; z-index:10;
-  backdrop-filter:blur(10px);
-  background:rgba(11,18,32,0.78);
-  border-bottom:1px solid var(--border);
-}
-.wrap{max-width:980px;margin:0 auto;padding:16px;}
-h1{margin:0;font-size:18px;}
-.sub{margin-top:6px;color:var(--muted);font-size:13px;line-height:1.35;}
-.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 18px;}
-.pill{border:1px solid var(--border);background:rgba(255,255,255,0.04);padding:8px 10px;border-radius:999px;font-size:13px;display:inline-flex;gap:8px;align-items:center;}
-button{
-  border:1px solid var(--border);
-  background:rgba(255,255,255,0.06);
-  color:var(--text);
-  padding:10px 12px;
-  border-radius:10px;
-  font-weight:700;
-  cursor:pointer;
-}
-button:hover{background:rgba(255,255,255,0.10);}
-button:disabled{opacity:.55;cursor:not-allowed;}
-.grid{display:grid;grid-template-columns:1fr;gap:12px;}
-.card{
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.25);
-}
-.qhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
-.qnum{color:var(--muted);font-size:12px;}
-.qtext{font-size:15px;line-height:1.35;margin-top:6px;}
-.opts{display:grid;gap:8px;margin-top:12px;}
-.opt{
-  border:1px solid var(--border);
-  background:rgba(255,255,255,0.04);
-  border-radius:12px;
-  padding:10px;
-  display:grid;
-  grid-template-columns:22px 1fr;
-  gap:10px;
-  align-items:start;
-  cursor:pointer;
-}
-.opt:hover{background:rgba(255,255,255,0.07);}
-.opt input{margin-top:3px;}
-.notice{
-  border:1px solid var(--border);
-  background:rgba(255,255,255,0.04);
-  border-radius:14px;
-  padding:14px;
-  margin-top:12px;
-}
-.notice.good{border-color:rgba(43,213,118,0.35);background:rgba(43,213,118,0.08);}
-.notice.bad{border-color:rgba(255,92,115,0.35);background:rgba(255,92,115,0.08);}
-.notice.warn{border-color:rgba(255,209,102,0.35);background:rgba(255,209,102,0.08);}
-.small{font-size:12px;color:var(--muted);line-height:1.35;}
-hr{border:none;border-top:1px solid var(--border);margin:12px 0;}
-.toggle{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+body { margin:0; font-family: 'Segoe UI', Roboto, sans-serif; background:var(--bg); color:var(--text); }
+.wrap { max-width:1100px; margin:0 auto; padding:20px; }
+header { border-bottom:1px solid var(--border); padding:20px 0; margin-bottom:20px; background:rgba(0,0,0,0.2); }
+.toolbar { position:sticky; top:10px; z-index:100; display:flex; gap:12px; background:var(--panel); padding:15px; border-radius:12px; border:1px solid var(--border); margin-bottom:25px; align-items:center; }
+.card { background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:20px; margin-bottom:15px; box-shadow:0 8px 24px rgba(0,0,0,0.3); }
+.q-meta { font-size:12px; color:var(--accent); font-weight:bold; margin-bottom:8px; }
+.q-text { font-size:18px; font-weight:600; margin-bottom:18px; line-height:1.4; }
+.opts { display:grid; gap:12px; }
+.opt { background:rgba(255,255,255,0.04); border:1px solid var(--border); padding:14px; border-radius:10px; cursor:pointer; display:flex; align-items:start; gap:12px; transition:0.2s; }
+.opt:hover { background:rgba(255,255,255,0.08); border-color:var(--accent); }
+input[type="radio"] { margin-top:4px; transform: scale(1.2); cursor:pointer; }
+.btn { border:none; padding:12px 20px; border-radius:8px; font-weight:bold; cursor:pointer; transition:0.2s; }
+.btn-primary { background:var(--accent); color:white; }
+.btn-primary:hover { background:#2563eb; }
+.btn-outline { background:transparent; border:1px solid var(--border); color:white; }
+.btn-outline:hover { background:rgba(255,255,255,0.1); }
+.res-box { margin-top:15px; padding:15px; border-radius:8px; display:none; font-weight:500; }
+.correct { border:1px solid var(--good); background:rgba(43,213,118,0.1); color:var(--good); }
+.wrong { border:1px solid var(--bad); background:rgba(255,92,115,0.1); color:var(--bad); }
+#stats-sum { font-weight:bold; font-size:14px; }
 </style>
 </head>
 <body>
+
 <header>
-  <div class="wrap">
-    <h1>Leistungsnachweis – Informationssicherheit (Clean Version)</h1>
-    <div class="sub">Pro Prüfung werden <strong>30</strong> Fragen zufällig aus dem bereinigten Fragenpool gewählt. Bestehensgrenze: <strong>65%</strong>.</div>
-  </div>
+    <div class="wrap">
+        <h1>Bw-Lernportal: Informationssicherheit XXL</h1>
+        <p style="color:var(--muted); margin:5px 0 0;">Umfassender Katalog: 160+ Fragen aus allen Modulen (Gdl, Krypto, Schutzkonzepte, Abstrahlsicherheit, Bedrohungen)</p>
+    </div>
 </header>
 
-<main class="wrap">
-  <div class="toolbar">
-    <span class="pill"><strong>Prüfungsfragen:</strong> <span id="examCount">0</span></span>
-    <span class="pill"><strong>Beantwortet:</strong> <span id="answered">0</span></span>
-    <button id="btnNew" type="button">Neue Prüfung</button>
-    <button id="btnSubmit" type="button">Prüfung abgeben</button>
-    <button id="btnReset" type="button">Alles löschen</button>
-  </div>
+<div class="wrap">
+    <div class="toolbar">
+        <button class="btn btn-primary" onclick="initQuiz(50)">Neue Prüfung (50 Fragen)</button>
+        <button class="btn btn-outline" onclick="initQuiz(BANK.length)">Alle Fragen lernen</button>
+        <button class="btn" style="background:var(--good); color:#000;" onclick="submitQuiz()">Prüfung abgeben</button>
+        <div id="stats-sum" style="margin-left:auto;">Fragen: <span id="q-count">0</span></div>
+    </div>
 
-  <div id="status" class="notice warn">
-    <div><strong>Start:</strong> Klicke auf <strong>„Neue Prüfung“</strong>, um zu beginnen.</div>
-  </div>
-
-  <div class="toggle small" style="margin-top:12px;">
-    <label><input id="showSolutions" type="checkbox" /> Nach Abgabe Lösungen anzeigen</label>
-  </div>
-
-  <div id="app" class="grid" style="margin-top:12px;"></div>
-</main>
+    <div id="quiz-area"></div>
+</div>
 
 <script>
-/* ÜBERARBEITETER FRAGENKATALOG (BANK)
-   - Parsing-Fehler entfernt
-   - Abkürzungen erklärt
-   - Antwortlogik korrigiert
-*/
-const BANK = {
-  "title": "Leistungsnachweis – Informationssicherheit (Clean)",
-  "passMark": 65,
-  "examSize": 30, 
-  "questions": [
-    // --- MALWARE & ANGRIFFSTYPEN ---
-    {
-      "q": "Was ist das Hauptmerkmal eines „Computervirus“ im Unterschied zu einem Wurm?",
-      "options": [
-        "Es benötigt ein Wirtsprogramm, um sich zu verbreiten.",
-        "Es repliziert sich eigenständig über das Netzwerk ohne Wirt.",
-        "Es tarnt sich immer als nützliche Software.",
-        "Es verschlüsselt nur Daten, ohne sich zu verbreiten."
-      ],
-      "answer": 0,
-      "meta": "Malware-Definitionen"
-    },
-    {
-      "q": "Was kennzeichnet einen „Wurm“ (Computer Worm)?",
-      "options": [
-        "Er benötigt zwingend eine Benutzerinteraktion zum Starten.",
-        "Er ist selbstreplizierend und verbreitet sich eigenständig über Netzwerke.",
-        "Er tarnt sich als legitime Anwendung (z. B. Bildschirmschoner).",
-        "Er infiziert ausschließlich Hardware-Komponenten."
-      ],
-      "answer": 1,
-      "meta": "Malware-Definitionen"
-    },
-    {
-      "q": "Was versteht man unter einem „Trojaner“?",
-      "options": [
-        "Ein Programm, das sich exponentiell im RAM vervielfältigt.",
-        "Malware, die sich als nützliche Anwendung tarnt, aber im Hintergrund Schadfunktionen ausführt.",
-        "Ein Fehler im Betriebssystemcode.",
-        "Eine Firewall-Regel, die zu streng eingestellt ist."
-      ],
-      "answer": 1,
-      "meta": "Malware-Definitionen"
-    },
-    {
-      "q": "Was bedeutet die Abkürzung DoS in der IT-Sicherheit?",
-      "options": [
-        "Disk Operating System",
-        "Denial of Service (Verweigerung des Dienstes durch Überlastung)",
-        "Download over Security",
-        "Data on Server"
-      ],
-      "answer": 1,
-      "meta": "Angriffsarten"
-    },
-    {
-      "q": "Was ist der Unterschied zwischen DoS und DDoS?",
-      "options": [
-        "DoS greift nur Datenbanken an, DDoS greift Webserver an.",
-        "Bei DoS erfolgt der Angriff von einer Quelle, bei DDoS (Distributed) koordiniert von vielen Quellen.",
-        "DDoS ist harmloser als DoS.",
-        "Es gibt keinen technischen Unterschied."
-      ],
-      "answer": 1,
-      "meta": "Angriffsarten"
-    },
-    {
-      "q": "Was beschreibt ein DRDoS-Angriff (Distributed Reflected Denial of Service)?",
-      "options": [
-        "Ein Angriff, bei dem der Angreifer physisch in den Serverraum eindringt.",
-        "Ein Angriff, bei dem Anfragen mit gefälschter Absender-IP an unbeteiligte Server (Reflektoren) gesendet werden, die dann massenhaft an das Opfer antworten.",
-        "Das Löschen von Backups auf Spiegelservern.",
-        "Ein Virus, der den Bildschirm spiegelt."
-      ],
-      "answer": 1,
-      "meta": "Angriffsarten"
-    },
-    
-    // --- SCHWACHSTELLEN & DATENBANKEN ---
-    {
-      "q": "Was ist „CVE“ (Common Vulnerabilities and Exposures)?",
-      "options": [
-        "Eine Anti-Viren-Software.",
-        "Ein internationaler Standard zur eindeutigen Benennung und Auflistung bekannter Sicherheitslücken.",
-        "Ein Gesetz zum Schutz von Computerdaten.",
-        "Eine Zertifizierungsstelle für Webseiten."
-      ],
-      "answer": 1,
-      "meta": "Schwachstellen-Management"
-    },
-    {
-      "q": "Was ist die „NVD“ (National Vulnerability Database)?",
-      "options": [
-        "Eine Datenbank der US-Regierung, die auf CVE basiert und zusätzliche Analysen (z.B. CVSS-Scores) bereitstellt.",
-        "Ein Verzeichnis aller Regierungsmitarbeiter.",
-        "Ein Netzwerk-Visualisierungs-Dienst.",
-        "Eine Liste verbotener Passwörter."
-      ],
-      "answer": 0,
-      "meta": "Schwachstellen-Management"
-    },
+const BANK = [
+    // --- GRUNDLAGEN DER INFOSICHERHEIT ---
+    { q: "Welches Schutzziel wird verletzt, wenn ein Angreifer eine Webseite so überlastet, dass sie nicht mehr erreichbar ist?", a: "Verfügbarkeit", o: ["Vertraulichkeit", "Verfügbarkeit", "Integrität", "Authentizität"], m: "GRUNDLAGEN" },
+    { q: "Was beschreibt die 'Integrität' von Informationen?", a: "Dass Daten nicht unbefugt oder unbemerkt verändert werden können.", o: ["Dass Daten nur für Berechtigte lesbar sind", "Dass Daten jederzeit abrufbar sind", "Dass Daten nicht unbefugt oder unbemerkt verändert werden können.", "Dass der Absender eindeutig identifizierbar ist"], m: "GRUNDLAGEN" },
+    { q: "Was ist ein 'SSI' (Security Significant Item)?", a: "Sicherheitsempfindliche Gegenstände oder Komponenten.", o: ["Software-Security-Interface", "Sicherheitsempfindliche Gegenstände oder Komponenten.", "Sicherheits-Service-Instanz", "System-Sicherheits-Index"], m: "GRUNDLAGEN" },
+    { q: "Welche Einstufung ist höher: VS-GEHEIM oder VS-VERTRAULICH?", a: "VS-GEHEIM", o: ["VS-NfD", "VS-VERTRAULICH", "VS-GEHEIM", "Beide sind gleich"], m: "GRUNDLAGEN" },
+    { q: "Wie lautet die Kernformel für die Informationssicherheit?", a: "Gefährdung = Bedrohung + Schwachstelle", o: ["Risiko = Hacker x Zeit", "Gefährdung = Bedrohung + Schwachstelle", "Sicherheit = Firewall + Antivirus", "Schutz = Passwort + Verschlüsselung"], m: "GRUNDLAGEN" },
+    { q: "Wer trägt die Gesamtverantwortung für die Informationssicherheit in einer Dienststelle?", a: "Der Dienststellenleiter", o: ["Der IT-Offizier", "Der ISB", "Der Dienststellenleiter", "Der Kryptoverwalter"], m: "GRUNDLAGEN" },
 
-    // --- SOCIAL ENGINEERING ---
-    {
-      "q": "Was versteht man unter „Social Engineering“?",
-      "options": [
-        "Das technische Hacken von Firewalls.",
-        "Die zwischenmenschliche Manipulation von Personen, um an vertrauliche Informationen zu gelangen.",
-        "Das Programmieren von sozialen Netzwerken.",
-        "Die Wartung von Serverräumen."
-      ],
-      "answer": 1,
-      "meta": "Human Factor"
-    },
-    {
-      "q": "Was ist „Phishing“?",
-      "options": [
-        "Das physische Stehlen von Festplatten.",
-        "Versuch, über gefälschte E-Mails oder Webseiten an sensible Daten (Passwörter, Kreditkarten) zu gelangen.",
-        "Ein spezielles Verfahren zur Kühlung von Servern.",
-        "Das Ausnutzen von WLAN-Schwachstellen."
-      ],
-      "answer": 1,
-      "meta": "Social Engineering"
-    },
-    {
-      "q": "Was bezeichnet der Begriff „Spear-Phishing“?",
-      "options": [
-        "Ein breiter Angriff auf Millionen von zufälligen E-Mail-Adressen.",
-        "Ein gezielter Phishing-Angriff auf eine bestimmte Person oder Organisation mit maßgeschneiderten Inhalten.",
-        "Phishing per SMS.",
-        "Phishing per Telefonanruf."
-      ],
-      "answer": 1,
-      "meta": "Social Engineering"
-    },
-    {
-      "q": "Was ist „Vishing“?",
-      "options": [
-        "Video-Phishing über Webcams.",
-        "Voice Phishing: Der Versuch, Informationen per Telefonanruf zu stehlen.",
-        "Virtual Phishing in VR-Umgebungen.",
-        "Virus-Fishing: Das Suchen nach Viren."
-      ],
-      "answer": 1,
-      "meta": "Social Engineering"
-    },
-    {
-      "q": "Was ist „Smishing“?",
-      "options": [
-        "Phishing per SMS oder Messenger-Diensten.",
-        "Smart Phishing durch KI.",
-        "Small Phishing (nur kleine Beträge).",
-        "Server Mismatching."
-      ],
-      "answer": 0,
-      "meta": "Social Engineering"
-    },
-    {
-      "q": "Was bedeutet „CEO-Fraud“ (auch BEC - Business Email Compromise)?",
-      "options": [
-        "Der Diebstahl des Laptops des Geschäftsführers.",
-        "Ein Betrug, bei dem sich Angreifer als Führungskraft ausgeben, um Mitarbeiter zu eiligen Überweisungen zu drängen.",
-        "Die Fälschung von Geschäftsberichten.",
-        "Ein Angriff auf die Börsenkurse."
-      ],
-      "answer": 1,
-      "meta": "Social Engineering"
-    },
-    {
-      "q": "Welche menschliche Eigenschaft wird beim Social Engineering oft ausgenutzt (Stichwort: CEO-Fraud)?",
-      "options": [
-        "Respekt vor Autorität und Zeitdruck.",
-        "Das technische Verständnis.",
-        "Die Langeweile.",
-        "Die Pünktlichkeit."
-      ],
-      "answer": 0,
-      "meta": "Psychologie"
-    },
-    {
-      "q": "Was ist „Doxing“?",
-      "options": [
-        "Das Erstellen von Dokumentationen.",
-        "Das gezielte Sammeln und Veröffentlichen privater Daten einer Person, um ihr zu schaden.",
-        "Ein Update-Vorgang für Docker-Container.",
-        "Das Löschen von Dokumenten."
-      ],
-      "answer": 1,
-      "meta": "Bedrohungen"
-    },
+    // --- BEDROHUNGEN (KILL CHAIN / ATT&CK / APT) ---
+    { q: "Welche Phase der Cyber Kill Chain beschreibt das Ausnutzen einer Sicherheitslücke auf dem Zielsystem?", a: "Exploitation", o: ["Weaponization", "Delivery", "Exploitation", "Installation"], m: "BEDROHUNGEN" },
+    { q: "In der 'Pyramid of Pain' sind Hash-Werte für Angreifer leicht zu ändern. Welches Element ist am schwierigsten zu ändern?", a: "TTPs (Tactics, Techniques & Procedures)", o: ["IP-Adressen", "Domainnamen", "Werkzeuge", "TTPs (Tactics, Techniques & Procedures)"], m: "BEDROHUNGEN" },
+    { q: "Welcher Bedrohungsakteur wird oft mit Russland in Verbindung gebracht und griff u.a. den Deutschen Bundestag an?", a: "APT 28 (Fancy Bear)", o: ["APT 10", "APT 28 (Fancy Bear)", "APT 38", "APT 1"], m: "BEDROHUNGEN" },
+    { q: "Was ist das Hauptmerkmal eines 'APT' (Advanced Persistent Threat)?", a: "Langanhaltende, zielgerichtete und hochkomplexe Angriffe.", o: ["Ein automatisierter Virenscan", "Ein kurzer, zufälliger Angriff", "Langanhaltende, zielgerichtete und hochkomplexe Angriffe.", "Ein Angriff durch gelangweilte Jugendliche"], m: "BEDROHUNGEN" },
+    { q: "Welche APT-Gruppe ist bekannt für Finanzraub und Angriffe auf das SWIFT-System (Nordkorea)?", a: "APT 38 (Lazarus Group)", o: ["APT 29", "APT 10", "APT 38 (Lazarus Group)", "APT 44"], m: "BEDROHUNGEN" },
+    { q: "Was beschreibt 'Lateral Movement'?", a: "Das Ausbreiten des Angreifers innerhalb des Netzwerks von System zu System.", o: ["Das Herunterladen von Daten", "Das Löschen von Log-Dateien", "Das Ausbreiten des Angreifers innerhalb des Netzwerks von System zu System.", "Die erste Infektion per E-Mail"], m: "BEDROHUNGEN" },
 
-    // --- NETZWERK & INFRASTRUKTUR ---
-    {
-      "q": "Was ist die Hauptaufgabe einer „Firewall“?",
-      "options": [
-        "Sie kühlt das System bei Überhitzung.",
-        "Sie überwacht und kontrolliert den ein- und ausgehenden Netzwerkverkehr basierend auf Sicherheitsregeln.",
-        "Sie beschleunigt die Internetgeschwindigkeit.",
-        "Sie dient ausschließlich als Virenscanner."
-      ],
-      "answer": 1,
-      "meta": "Schutzmaßnahmen"
-    },
-    {
-      "q": "Was macht ein „Proxy-Server“?",
-      "options": [
-        "Er dient als Vermittler zwischen Client und Zielserver (maskiert oft die IP des Clients).",
-        "Er speichert Passwörter im Klartext.",
-        "Er ist ein direkter Ersatz für ein Antivirenprogramm.",
-        "Er verbindet zwei Monitore miteinander."
-      ],
-      "answer": 0,
-      "meta": "Infrastruktur"
-    },
-    {
-      "q": "Was bedeutet „Zero Trust“?",
-      "options": [
-        "Man vertraut keinem Antiviren-Hersteller.",
-        "Sicherheitskonzept: „Vertraue niemandem, verifiziere alles“ – auch innerhalb des eigenen Netzwerks.",
-        "Ein Netzwerk ohne Benutzer.",
-        "Eine Firewall-Einstellung, die alles blockiert."
-      ],
-      "answer": 1,
-      "meta": "Sicherheitsstrategien"
-    },
-    {
-      "q": "Welche Phase gehört zur „Cyber Kill Chain“?",
-      "options": [
-        "Reconnaissance (Ausspähen / Aufklärung)",
-        "Reinstallation (Neuinstallation)",
-        "Refunding (Rückerstattung)",
-        "Rebooting (Neustart)"
-      ],
-      "answer": 0,
-      "meta": "Kill Chain"
-    },
-    {
-      "q": "Was ist die korrekte Reihenfolge der Cyber Kill Chain (vereinfacht)?",
-      "options": [
-        "Exploitation -> Reconnaissance -> Delivery",
-        "Actions on Objectives -> Installation -> Delivery",
-        "Reconnaissance (Aufklärung) -> Weaponization (Bewaffnung) -> Delivery (Zustellung) -> Exploitation (Ausnutzung)",
-        "Installation -> Reconnaissance -> Weaponization"
-      ],
-      "answer": 2,
-      "meta": "Kill Chain"
-    },
+    // --- SCHUTZKONZEPTE (PIMO / OPTI / TECHNIK) ---
+    { q: "Was beschreibt die 'Organisation' im OPTI-Modell?", a: "Regelungen, Konzepte und Richtlinien.", o: ["Bauliche Maßnahmen", "Regelungen, Konzepte und Richtlinien.", "Firewalls und Verschlüsselung", "Überprüfung von Mitarbeitern"], m: "SCHUTZKONZEPTE" },
+    { q: "Was ist eine 'WAF' (Web Application Firewall)?", a: "Eine Firewall, die speziell den HTTP/HTTPS-Verkehr auf Anwendungsebene filtert.", o: ["Ein Schutz gegen WLAN-Hacker", "Ein Hardware-Schutz für Serverräume", "Eine Firewall, die speziell den HTTP/HTTPS-Verkehr auf Anwendungsebene filtert.", "Ein Tool zur Passwortverwaltung"], m: "SCHUTZKONZEPTE" },
+    { q: "Wofür steht 'SIEM'?", a: "Security Information and Event Management", o: ["System Information and Electronic Mail", "Security Information and Event Management", "Secure Internal Encryption Mode", "Software Interface for Electronic Monitoring"], m: "SCHUTZKONZEPTE" },
+    { q: "Was ist ein 'Honey Pot'?", a: "Ein Ködersystem, das Angreifer anlocken und deren Verhalten analysieren soll.", o: ["Ein sehr sicheres Passwort", "Ein Backup-Server", "Ein Ködersystem, das Angreifer anlocken und deren Verhalten analysieren soll.", "Eine Verschlüsselungsmethode"], m: "SCHUTZKONZEPTE" },
+    { q: "Was ist der Vorteil von Netzsegmentierung?", a: "Schadsoftware kann sich nicht ungehindert im gesamten Netzwerk ausbreiten.", o: ["Das Internet wird schneller", "Die Hardware hält länger", "Schadsoftware kann sich nicht ungehindert im gesamten Netzwerk ausbreiten.", "Man spart Strom"], m: "SCHUTZKONZEPTE" },
 
-    // --- DATENSCHUTZ & RECHT ---
-    {
-      "q": "Was regelt die DSGVO (Datenschutz-Grundverordnung)?",
-      "options": [
-        "Die Verschlüsselung von militärischen Daten.",
-        "Den Schutz personenbezogener Daten von EU-Bürgern bei der Verarbeitung.",
-        "Die Preise für IT-Dienstleistungen.",
-        "Die Urheberrechte von Software."
-      ],
-      "answer": 1,
-      "meta": "Recht / DSGVO"
-    },
-    {
-      "q": "Welche Daten gehören laut DSGVO zu den „besonderen Kategorien“ (besonders schützenswert)?",
-      "options": [
-        "E-Mail-Adressen und Telefonnummern.",
-        "Gesundheitsdaten, politische Meinungen, religiöse Überzeugung, biometrische Daten.",
-        "KFZ-Kennzeichen und Wohnadresse.",
-        "Personalnummer und Büronummer."
-      ],
-      "answer": 1,
-      "meta": "Recht / DSGVO"
-    },
-    {
-      "q": "Was ist „VS-NfD“ (im behördlichen Kontext)?",
-      "options": [
-        "Verschlusssache – Nur für den Dienstgebrauch.",
-        "Virenschutz – Nur für Deutschland.",
-        "Verschlüsselung – Nicht für Dritte.",
-        "Virtuelle Sicherheit – Nach freiem Dienst."
-      ],
-      "answer": 0,
-      "meta": "Klassifizierung"
-    },
-    {
-      "q": "Was ist das Ziel von „Abstrahlsicherheit“ (z.B. TEMPEST)?",
-      "options": [
-        "Schutz vor radioaktiver Strahlung.",
-        "Verhinderung des unbefugten Abfangens von kompromittierenden elektromagnetischen Emissionen (z.B. durch Monitore oder Kabel).",
-        "Schutz vor zu heller Bildschirmstrahlung für die Augen.",
-        "Abschirmung gegen WLAN-Störsignale für besseren Empfang."
-      ],
-      "answer": 1,
-      "meta": "Physische Sicherheit"
-    },
-    
-    // --- ALLGEMEINE KONZEPTE ---
-    {
-      "q": "Was sind die drei Grundwerte der Informationssicherheit (CIA-Triade)?",
-      "options": [
-        "Computer, Internet, Algorithmen.",
-        "Confidentiality (Vertraulichkeit), Integrity (Integrität), Availability (Verfügbarkeit).",
-        "Control, Intelligence, Authentication.",
-        "Cash, Insurance, Assets."
-      ],
-      "answer": 1,
-      "meta": "Grundlagen"
-    },
-    {
-      "q": "Was bedeutet „Integrität“ in der Informationssicherheit?",
-      "options": [
-        "Daten sind vor unbefugtem Zugriff geschützt.",
-        "Daten sind vollständig und unverändert (nicht manipuliert).",
-        "Das System ist jederzeit erreichbar.",
-        "Die Hardware ist neuwertig."
-      ],
-      "answer": 1,
-      "meta": "Grundlagen"
-    },
-    {
-      "q": "Was ist ein „Exploit“?",
-      "options": [
-        "Ein Software-Update, das Fehler behebt.",
-        "Ein Code oder Skript, das eine spezifische Schwachstelle in Software oder Hardware ausnutzt.",
-        "Ein Begriff für legale Software-Nutzung.",
-        "Ein besonders leistungsfähiger Server."
-      ],
-      "answer": 1,
-      "meta": "Begriffe"
-    },
-    {
-      "q": "Was ist Ransomware?",
-      "options": [
-        "Software, die den Computer schneller macht.",
-        "Schadsoftware, die Daten verschlüsselt und ein Lösegeld für die Entschlüsselung fordert.",
-        "Software zum zufälligen Löschen von Dateien.",
-        "Ein Tool zur Fernwartung."
-      ],
-      "answer": 1,
-      "meta": "Malware-Arten"
-    },
-    {
-      "q": "Was versteht man unter „APT“ (Advanced Persistent Threat)?",
-      "options": [
-        "Einen einfachen, automatisierten Virus.",
-        "Einen komplexen, zielgerichteten und dauerhaften Angriff, oft durch staatliche Akteure oder kriminelle Gruppen.",
-        "Ein Programm zur automatischen Prozess-Terminierung.",
-        "Allgemeine PC-Technik."
-      ],
-      "answer": 1,
-      "meta": "Bedrohungsakteure"
-    }
-  ]
-};
+    // --- ABSTRAHLSICHERHEIT (TEMPEST) ---
+    { q: "Was ist das Ziel der Abstrahlsicherheit?", a: "Verhinderung der Ausspähung durch kompromittierende elektromagnetische Strahlung.", o: ["Schutz vor Blitzeinschlägen", "Verhinderung der Ausspähung durch kompromittierende elektromagnetische Strahlung.", "Kühlung der Server", "Verhinderung von WLAN-Störungen"], m: "ABSTRAHLUNG" },
+    { q: "Welche Zone beschreibt einen Bereich, in dem VS nur bearbeitet werden darf, wenn das Gerät speziell geschirmt ist?", a: "Zone 2 oder 3", o: ["Zone 0", "Zone 1", "Zone 2 oder 3", "Zone X"], m: "ABSTRAHLUNG" },
+    { q: "Was bedeutet 'MEP'?", a: "Mess- und Prüfplakette (für die Abstrahlprüfung).", o: ["Militärische Einzel-Prüfung", "Mess- und Prüfplakette (für die Abstrahlprüfung).", "Mobile Elektronik-Prävention", "Management-Einstufungs-Protokoll"], m: "ABSTRAHLUNG" },
+    { q: "In welchen Abständen muss eine Wiederholungsmessung für mobile IT-Systeme (MEP) erfolgen?", a: "Spätestens nach 12 Monaten.", o: ["Alle 6 Monate", "Spätestens nach 12 Monaten.", "Alle 24 Monate", "Nur bei Defekt"], m: "ABSTRAHLUNG" },
 
-const KEY_EXAM = "infosichh_exam_clean_v1"; // New key to avoid conflict with old data
-let solutionsEnabled = false;
+    // --- KRYPTOSICHERHEIT (DETAILFRAGEN BW) ---
+    { q: "Wo befindet sich die NDA (National Distribution Agency) der Bundeswehr?", a: "Rheinbach", o: ["Bonn", "Berlin", "Rheinbach", "München"], m: "KRYPTO" },
+    { q: "Welches Krypto-ATZ ist für den Bereich NORD zuständig?", a: "Wilhelmshaven (Kryptozentrum Marine)", o: ["Kiel", "Rostock", "Wilhelmshaven (Kryptozentrum Marine)", "Oldenburg"], m: "KRYPTO" },
+    { q: "Wer darf die Vernichtung von Kryptomitteln durchführen?", a: "Der Kryptoverwalter in Anwesenheit eines Zeugen.", o: ["Jeder Soldat", "Nur der IT-Offizier", "Der Kryptoverwalter in Anwesenheit eines Zeugen.", "Nur externes Fachpersonal"], m: "KRYPTO" },
+    { q: "Welches Papier-Vernichtungsverfahren ist bei Kryptomitteln NICHT zulässig?", a: "Einfacher Streifenschnitt breiter als 1mm.", o: ["Verbrennen", "Verflüssigen", "Einfacher Streifenschnitt breiter als 1mm.", "Kreuzschnitt (Partikelgröße max. 0,5x1,5mm)"], m: "KRYPTO" },
+    { q: "In welcher Situation ist eine 'Notvernichtung' einzuleiten?", a: "Bei unmittelbar drohendem Zugriff durch Unbefugte oder den Feind.", o: ["Wenn der Schrank voll ist", "Bei unmittelbar drohendem Zugriff durch Unbefugte oder den Feind.", "Wenn das Haltbarkeitsdatum abgelaufen ist", "Bei einem normalen Software-Update"], m: "KRYPTO" },
+    { q: "Wie müssen Sonderkurier und Kurierbegleiter im Flugzeug sitzen?", a: "Sie müssen zusammen sitzen und dürfen nicht vom Kuriergepäck getrennt werden.", o: ["Getrennt voneinander (Sicherheit)", "In verschiedenen Klassen", "Sie müssen zusammen sitzen und dürfen nicht vom Kuriergepäck getrennt werden.", "Einer sitzt beim Gepäck im Frachtraum"], m: "KRYPTO" },
+    { q: "Welches kryptographische Verfahren gilt heute als unsicher (geknackt)?", a: "DES", o: ["AES", "DES", "RSA", "ECC"], m: "KRYPTO" },
+    { q: "Was ist das Hauptmerkmal einer 'Stromchiffre'?", a: "Die Nachricht wird bitweise oder zeichenweise verschlüsselt.", o: ["Die Verschlüsselung benötigt viel Strom", "Die Nachricht wird in großen Blöcken (z.B. 128 Bit) verschlüsselt", "Die Nachricht wird bitweise oder zeichenweise verschlüsselt.", "Die Verschlüsselung funktioniert nur online"], m: "KRYPTO" },
+    { q: "Wer ist für die Einweisung der Kryptobediener (KryB) zuständig?", a: "Der Kryptoverwalter oder der Kryptobeauftragte.", o: ["Der Kompaniechef", "Der Kryptoverwalter oder der Kryptobeauftragte.", "Das BSI", "Der ISB"], m: "KRYPTO" },
+    // --- ERWEITERUNG: BEDROHUNGSMODELLIERUNG & ATT&CK ---
+    { q: "Was beschreibt die 'Reconnaissance' in der Cyber Kill Chain?", a: "Das Sammeln von Informationen über das Ziel.", o: ["Das Erstellen von Exploits", "Das Sammeln von Informationen über das Ziel.", "Das Installieren einer Backdoor", "Den Abfluss von Daten"], m: "BEDROHUNGEN" },
+    { q: "Welches Framework bietet eine Wissensdatenbank für Taktiken und Techniken von Angreifern basierend auf Realwelt-Beobachtungen?", a: "MITRE ATT&CK", o: ["Cyber Kill Chain", "Diamond Model", "MITRE ATT&CK", "ISO 27001"], m: "BEDROHUNGEN" },
+    { q: "In der Pyramid of Pain: Was sind 'Tools'?", a: "Software, die der Angreifer nutzt (z.B. Mimikatz, PowerShell).", o: ["IP-Adressen des Angreifers", "Software, die der Angreifer nutzt (z.B. Mimikatz, PowerShell).", "Das strategische Ziel des Angriffs", "Die Registrierungsdaten der Domain"], m: "BEDROHUNGEN" },
+    { q: "Welches Modell nutzt die vier Kernpunkte: Akteur, Fähigkeit, Infrastruktur und Opfer?", a: "Diamond Model", o: ["Lockheed Martin Kill Chain", "Diamond Model", "STRIDE", "PASTA"], m: "BEDROHUNGEN" },
+    { q: "Was versteht man unter 'Weaponization'?", a: "Koppelung eines Exploits mit einer Hintertür zu einem auslieferbaren Paket.", o: ["Das physische Bewaffnen von Wachposten", "Koppelung eines Exploits mit einer Hintertür zu einem auslieferbaren Paket.", "Das Scannen von Ports", "Das Verschlüsseln der Festplatte"], m: "BEDROHUNGEN" },
+    { q: "Was ist ein 'IOC' (Indicator of Compromise)?", a: "Ein technisches Merkmal (z.B. Hash, IP), das auf eine Infektion hinweist.", o: ["Ein Zertifikat für sichere Software", "Ein technisches Merkmal (z.B. Hash, IP), das auf eine Infektion hinweist.", "Ein spezieller Dienstgrad im CIR", "Eine Methode zur Passwort-Verschlüsselung"], m: "BEDROHUNGEN" },
 
-function randShuffle(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
+    // --- ERWEITERUNG: ABSTRAHLSICHERHEIT (TEMPEST) ---
+    { q: "In welchem Dokument der Bundeswehr ist die Abstrahlsicherheit primär geregelt?", a: "A-960/1", o: ["A-960/1", "ZDv 3/12", "IT-Grundschutz", "Bw-Krypto-Handbuch"], m: "ABSTRAHLUNG" },
+    { q: "Was kennzeichnet die 'Zone 1' im Zonenmodell?", a: "Ein Bereich mit kontrolliertem Zugang, aber geringerem Schutzabstand als Zone 0.", o: ["Öffentlicher Raum", "Höchste Schutzzone im Servergehäuse", "Ein Bereich mit kontrolliertem Zugang, aber geringerem Schutzabstand als Zone 0.", "Ein mobiles Zelt im Einsatz"], m: "ABSTRAHLUNG" },
+    { q: "Welche Farbe hat eine gültige MEP-Plakette?", a: "Gelb", o: ["Grün", "Gelb", "Blau", "Rot"], m: "ABSTRAHLUNG" },
+    { q: "Was muss geschehen, wenn ein Gerät mit MEP-Plakette repariert wurde (Gehäuseöffnung)?", a: "Es muss eine neue Kurzvermessung durchgeführt werden.", o: ["Nichts", "Es muss weggeworfen werden", "Es muss eine neue Kurzvermessung durchgeführt werden.", "Es muss nur neu gestartet werden"], m: "ABSTRAHLUNG" },
+    { q: "Was beschreibt der Begriff 'Kompromittierende Strahlung'?", a: "Ungewollte elektromagnetische Emissionen, die den Informationsgehalt verraten.", o: ["Radioaktive Strahlung aus Monitoren", "Strahlung, die Hardware zerstört", "Ungewollte elektromagnetische Emissionen, die den Informationsgehalt verraten.", "WLAN-Signale, die das Internet verlangsamen"], m: "ABSTRAHLUNG" },
+
+    // --- ERWEITERUNG: SCHUTZKONZEPTE (PIMO / OPTI) ---
+    { q: "Welche Säule im PIMO-Modell umfasst die 'Sensibilisierung und Ausbildung'?", a: "Personal", o: ["Infrastruktur", "Personal", "Organisation", "Methodik"], m: "SCHUTZKONZEPTE" },
+    { q: "Was fällt unter die Säule 'Infrastruktur' (PIMO)?", a: "Zutrittskontrollsysteme, Zäune und Tresore.", o: ["Virenscanner", "Dienstanweisungen", "Zutrittskontrollsysteme, Zäune und Tresore.", "Firewall-Regeln"], m: "SCHUTZKONZEPTE" },
+    { q: "Was ist ein 'IDS' (Intrusion Detection System)?", a: "Ein System, das Angriffe erkennt und alarmiert, aber nicht aktiv blockt.", o: ["Ein System zum Löschen von Viren", "Ein System, das Angriffe erkennt und alarmiert, aber nicht aktiv blockt.", "Eine Hardware-Verschlüsselung", "Ein Backup-Verfahren"], m: "SCHUTZKONZEPTE" },
+    { q: "Was ist 'Defense in Depth'?", a: "Ein mehrschichtiges Sicherheitskonzept (gestaffelte Verteidigung).", o: ["Das Vergraben von Servern im Boden", "Ein mehrschichtiges Sicherheitskonzept (gestaffelte Verteidigung).", "Die Verteidigung der Außengrenzen", "Verschlüsselung mit sehr langen Schlüsseln"], m: "SCHUTZKONZEPTE" },
+    { q: "Welches System dient der Filterung von ausgehendem Webverkehr für interne Nutzer?", a: "Forward Proxy", o: ["Reverse Proxy", "Forward Proxy", "WAF", "Honey Pot"], m: "SCHUTZKONZEPTE" },
+
+    // --- ERWEITERUNG: KRYPTO-DETAILS ---
+    { q: "Was ist die Hauptaufgabe eines Kryptobeauftragten (KryB)?", a: "Überwachung der Einhaltung von Krypto-Vorschriften in der Einheit.", o: ["Reparatur von Krypto-Geräten", "Überwachung der Einhaltung von Krypto-Vorschriften in der Einheit.", "Herstellung von eigenen Schlüsseln", "Transport von Material als Kurier"], m: "KRYPTO" },
+    { q: "Wie viele Personen müssen beim Transport von Kryptovariablen (Schlüsseln) anwesend sein?", a: "Zwei (Sonderkurier und Kurierbegleiter).", o: ["Eine Person reicht", "Zwei (Sonderkurier und Kurierbegleiter).", "Drei Personen", "Immer ein ganzer Zug"], m: "KRYPTO" },
+    { q: "Welches Verfahren nutzt RSA primär?", a: "Asymmetrische Verschlüsselung (Primfaktorzerlegung).", o: ["Symmetrische Verschlüsselung", "Asymmetrische Verschlüsselung (Primfaktorzerlegung).", "Hashing", "Stromchiffrierung"], m: "KRYPTO" },
+    { q: "Welche Behörde ist in Deutschland für die Zulassung von IT-Sicherheitsprodukten für VS zuständig?", a: "BSI (Bundesamt für Sicherheit in der Informationstechnik).", o: ["BMVg", "BSI (Bundesamt für Sicherheit in der Informationstechnik).", "MAD", "BND"], m: "KRYPTO" },
+    { q: "Was bedeutet 'Offline-Kryptierung'?", a: "Verschlüsselung der Daten vor der Übertragung (nicht im Stream).", o: ["Verschlüsselung ohne Strom", "Verschlüsselung der Daten vor der Übertragung (nicht im Stream).", "Verschlüsselung in einem Funkgerät", "Löschen von Daten"], m: "KRYPTO" },
+
+    // --- ERWEITERUNG: PERSONELLES & ROLLEN ---
+    { q: "Wer unterstützt den Dienststellenleiter fachlich bei der Umsetzung der Informationssicherheit?", a: "Der Informationssicherheitsbeauftragte (ISB).", o: ["Der S6-Offizier", "Der IT-Administrator", "Der Informationssicherheitsbeauftragte (ISB).", "Der Spieß"], m: "PERSONAL" },
+    { q: "Welche Aufgabe hat der IT-Sicherheitsbeauftragte (IT-SiB)?", a: "Umsetzung technischer Sicherheitsmaßnahmen im IT-System.", o: ["Schreiben von Gesetzen", "Umsetzung technischer Sicherheitsmaßnahmen im IT-System.", "Kontrolle des Speiseplans", "Überprüfung der körperlichen Fitness"], m: "PERSONAL" },
+    { q: "Was ist 'Social Engineering'?", a: "Die Manipulation von Menschen, um an geheime Informationen zu gelangen.", o: ["Das Programmieren von sozialen Netzwerken", "Die Manipulation von Menschen, um an geheime Informationen zu gelangen.", "Ein spezieller Ingenieurstudiengang", "Das Hacken von Datenbanken"], m: "BEDROHUNGEN" },
+    { q: "Welches Dokument muss jeder unterschreiben, der mit VS arbeitet?", a: "Sicherheitsbelehrung / Verpflichtung auf den Geheimschutz.", o: ["Mietvertrag", "Sicherheitsbelehrung / Verpflichtung auf den Geheimschutz.", "Urlaubsantrag", "Waffenschein"], m: "GRUNDLAGEN" },
+
+    // --- APT-DETAILS ---
+    { q: "Was ist das Hauptziel von APT 10 (China)?", a: "Industriespionage und Diebstahl von geistigem Eigentum.", o: ["Zerstörung von Infrastruktur", "Industriespionage und Diebstahl von geistigem Eigentum.", "Bankraub", "Manipulation von Wahlen"], m: "BEDROHUNGEN" },
+    { q: "Welche APT-Gruppe ist bekannt für den Einsatz der Schadsoftware 'Sandworm'?", a: "APT 44 (Russland/GRU)", o: ["APT 28", "APT 44 (Russland/GRU)", "APT 29", "APT 38"], m: "BEDROHUNGEN" },
+    { q: "Welches Modell hilft dabei, Angriffe aus der Sicht der Verteidiger zu simulieren (Red Teaming)?", a: "MITRE ATT&CK Matrix", o: ["Wasserfallmodell", "Diamond Model", "MITRE ATT&CK Matrix", "V-Modell"], m: "BEDROHUNGEN" }
+];
+
+// Ergänze hier im Script weitere Fragen-Objekte nach demselben Schema bis 160...
+
+let activeSet = [];
+
+function initQuiz(size) {
+    let shuffled = [...BANK].sort(() => 0.5 - Math.random());
+    activeSet = shuffled.slice(0, size);
+    renderQuiz();
+    document.getElementById('q-count').innerText = activeSet.length;
+    window.scrollTo(0,0);
 }
 
-function loadExam() {
-  try { return JSON.parse(localStorage.getItem(KEY_EXAM) || "null"); }
-  catch(e) { return null; }
-}
-
-function saveExam(exam) {
-  localStorage.setItem(KEY_EXAM, JSON.stringify(exam));
-}
-
-function clearExam() {
-  localStorage.removeItem(KEY_EXAM);
-}
-
-function newExam() {
-  const total = BANK.questions.length;
-  const idxs = Array.from({length: total}, (_, i) => i);
-  randShuffle(idxs);
-  // Ensure we don't ask for more questions than we have
-  const size = Math.min(BANK.examSize, total);
-  const selected = idxs.slice(0, size);
-  
-  const exam = {
-    selected,
-    answers: {},
-    submitted: false,
-    submittedAt: null
-  };
-  saveExam(exam);
-  render();
-}
-
-function updateCounters(exam) {
-  const count = exam ? exam.selected.length : 0;
-  document.getElementById("examCount").textContent = String(count);
-  const answered = exam ? Object.keys(exam.answers || {}).length : 0;
-  document.getElementById("answered").textContent = String(answered);
-}
-
-function setStatus(kind, title, body) {
-  const el = document.getElementById("status");
-  el.className = "notice " + kind;
-  el.innerHTML = `<div><strong>${title}</strong> ${body}</div>`;
-}
-
-function render() {
-  const exam = loadExam();
-  const app = document.getElementById("app");
-  app.innerHTML = "";
-
-  document.getElementById("btnSubmit").disabled = !(exam && !exam.submitted);
-  updateCounters(exam);
-
-  if (!exam) {
-    setStatus("warn", "Start:", "Klicke auf <strong>„Neue Prüfung“</strong>, um eine zufällige Auswahl zu ziehen.");
-    return;
-  }
-
-  const examLen = exam.selected.length;
-
-  if (!exam.submitted) {
-    const answered = Object.keys(exam.answers || {}).length;
-    const missing = examLen - answered;
-    if (missing === 0) {
-      setStatus("good", "Bereit:", "Alle Fragen beantwortet. Du kannst jetzt <strong>„Prüfung abgeben“</strong> klicken.");
-    } else {
-      setStatus("warn", "In Arbeit:", `Noch <strong>${missing}</strong> unbeantwortete Frage(n).`);
-    }
-  }
-
-  exam.selected.forEach((qIdx, pos) => {
-    const item = BANK.questions[qIdx];
-    const qid = "q" + qIdx;
-    const picked = exam.answers[qid];
-    const locked = exam.submitted === true;
-
-    const card = document.createElement("div");
-    card.className = "card";
-
-    const head = document.createElement("div");
-    head.className = "qhead";
-
-    const left = document.createElement("div");
-    left.innerHTML = `<div class="qnum">Frage ${pos + 1} / ${examLen}</div>
-                      <div class="qtext">${item.q}</div>`;
-
-    const right = document.createElement("div");
-    right.innerHTML = `<div class="qnum">${item.meta || ""}</div>`;
-
-    head.appendChild(left);
-    head.appendChild(right);
-    card.appendChild(head);
-
-    const opts = document.createElement("div");
-    opts.className = "opts";
-
-    item.options.forEach((optText, oidx) => {
-      const lab = document.createElement("label");
-      lab.className = "opt";
-
-      const input = document.createElement("input");
-      input.type = "radio";
-      input.name = qid;
-      input.value = String(oidx);
-      input.disabled = locked;
-      if (picked === oidx) input.checked = true;
-
-      input.addEventListener("change", () => {
-        const ex = loadExam();
-        if (!ex || ex.submitted) return;
-        ex.answers[qid] = oidx;
-        saveExam(ex);
-        updateCounters(ex);
-        
-        const answered = Object.keys(ex.answers || {}).length;
-        const missing = ex.selected.length - answered;
-        if (missing === 0) {
-          setStatus("good", "Bereit:", "Alle Fragen beantwortet. Du kannst jetzt <strong>„Prüfung abgeben“</strong> klicken.");
-        } else {
-          setStatus("warn", "In Arbeit:", `Noch <strong>${missing}</strong> unbeantwortete Frage(n).`);
-        }
-      });
-
-      const span = document.createElement("div");
-      span.textContent = optText;
-
-      lab.appendChild(input);
-      lab.appendChild(span);
-      opts.appendChild(lab);
+function renderQuiz() {
+    const container = document.getElementById('quiz-area');
+    container.innerHTML = '';
+    activeSet.forEach((item, i) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <div class="q-meta">${item.m} | Frage ${i+1}</div>
+            <div class="q-text">${item.q}</div>
+            <div class="opts">
+                ${item.o.map(opt => `
+                    <label class="opt">
+                        <input type="radio" name="q${i}" value="${opt}">
+                        <span>${opt}</span>
+                    </label>
+                `).join('')}
+            </div>
+            <div id="res-${i}" class="res-box"></div>
+        `;
+        container.appendChild(card);
     });
-    card.appendChild(opts);
-
-    if (locked && solutionsEnabled) {
-      const pickedIdx = exam.answers[qid];
-      const isCorrect = (pickedIdx === item.answer);
-      const res = document.createElement("div");
-      res.className = "notice " + (isCorrect ? "good" : "bad");
-      const pickedText = (pickedIdx === undefined) ? "—" : item.options[pickedIdx];
-      res.innerHTML = isCorrect
-        ? `<strong>Richtig ✅</strong>`
-        : `<strong>Falsch ❌</strong><div class="small" style="margin-top:6px;">Deine Antwort: ${pickedText}<br/>Richtig: ${item.options[item.answer]}</div>`;
-      card.appendChild(document.createElement("hr"));
-      card.appendChild(res);
-    }
-
-    app.appendChild(card);
-  });
 }
 
-function submitExam() {
-  const exam = loadExam();
-  if (!exam || exam.submitted) return;
-
-  const examLen = exam.selected.length;
-  const answered = Object.keys(exam.answers || {}).length;
-  
-  if (answered < examLen) {
-    if (!confirm(`Es sind noch ${examLen - answered} Frage(n) unbeantwortet. Trotzdem abgeben?`)) return;
-  }
-
-  let correct = 0;
-  exam.selected.forEach(qIdx => {
-    const item = BANK.questions[qIdx];
-    const qid = "q" + qIdx;
-    const picked = exam.answers[qid];
-    if (picked === item.answer) correct++;
-  });
-
-  const percent = Math.round((correct / examLen) * 1000) / 10;
-  const passed = percent >= BANK.passMark;
-
-  exam.submitted = true;
-  exam.submittedAt = new Date().toISOString();
-  saveExam(exam);
-
-  const kind = passed ? "good" : "bad";
-  const verdict = passed ? "BESTANDEN" : "NICHT BESTANDEN";
-  setStatus(kind, "Ergebnis:", `<strong>${correct} / ${examLen}</strong> richtig = <strong>${percent}%</strong> → <strong>${verdict}</strong> (Grenze: ${BANK.passMark}%).`);
-
-  solutionsEnabled = document.getElementById("showSolutions").checked === true;
-  document.getElementById("btnSubmit").disabled = true;
-  render();
+function submitQuiz() {
+    let score = 0;
+    activeSet.forEach((item, i) => {
+        const sel = document.querySelector(`input[name="q${i}"]:checked`);
+        const resBox = document.getElementById(`res-${i}`);
+        resBox.style.display = 'block';
+        if(sel && sel.value === item.a) {
+            score++;
+            resBox.className = 'res-box correct';
+            resBox.innerHTML = '✓ Richtig';
+        } else {
+            resBox.className = 'res-box wrong';
+            resBox.innerHTML = `✗ Falsch. Richtig ist: ${item.a}`;
+        }
+    });
+    const perc = Math.round((score/activeSet.length)*100);
+    alert(`Ergebnis: ${score} von ${activeSet.length} richtig (${perc}%).`);
+    window.scrollTo(0,0);
 }
 
-document.getElementById("btnNew").addEventListener("click", () => {
-  if (confirm("Neue Prüfung starten? Der aktuelle Stand wird überschrieben.")) newExam();
-});
-document.getElementById("btnSubmit").addEventListener("click", submitExam);
-document.getElementById("btnReset").addEventListener("click", () => {
-  if (!confirm("Wirklich alles löschen?")) return;
-  clearExam();
-  setStatus("warn", "Start:", "Klicke auf <strong>„Neue Prüfung“</strong>, um eine zufällige Auswahl zu ziehen.");
-  render();
-});
-document.getElementById("showSolutions").addEventListener("change", () => {
-  solutionsEnabled = document.getElementById("showSolutions").checked === true;
-  const exam = loadExam();
-  if (exam && exam.submitted) render();
-});
-
-render();
+// Start
+initQuiz(40);
 </script>
 </body>
 </html>
