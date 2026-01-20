@@ -421,6 +421,67 @@ const BANK = [
       a: "Dem Brechen von Kryptographieverfahren ohne Kenntnis des Schlüssels.",
       o: ["Dem Erstellen neuer Codes.", "Dem Brechen von Kryptographieverfahren ohne Kenntnis des Schlüssels.", "Der physischen Vernichtung von Krypto-Geräten.", "Der Verwaltung von Passwörtern."],
       m: "KRYPTO"
+    },
+  // --- NEUE FRAGEN: NDA & LOGISTIK (RHEINBACH) ---
+    {
+      q: "Welche Dienststelle fungiert als NDA GE (National Distribution Agency Germany)?",
+      a: "Das IT-Zentrum Bundeswehr (ITZBw) in Rheinbach.",
+      o: ["Das Bundesamt für Sicherheit in der Informationstechnik (BSI).", "Das IT-Zentrum Bundeswehr (ITZBw) in Rheinbach.", "Das Kommando CIR in Bonn.", "Das Logistikzentrum der Bundeswehr in Wilhelmshaven."],
+      m: "KRYPTO"
+    },
+    {
+      q: "Wie viele Nationale Verteilungsorganisationen (NDA) gibt es für Kryptomaterial in Deutschland?",
+      a: "Genau eine (Zentralisierung).",
+      o: ["Eine pro Teilstreitkraft.", "Genau eine (Zentralisierung).", "Vier (analog zu den ATZ).", "Sechzehn (eine pro Bundesland)."],
+      m: "KRYPTO"
+    },
+
+    // --- NEUE FRAGEN: ROLLEN & VERANTWORTUNG ---
+    {
+      q: "Wer trägt die Gesamtverantwortung für das Kryptomaterial innerhalb einer Dienststelle?",
+      a: "Der Dienststellenleiter (DStL).",
+      o: ["Der Kryptoverwalter (KryVw).", "Der Dienststellenleiter (DStL).", "Der S6-Offizier.", "Der Kryptobeauftragte (KryB)."],
+      m: "KRYPTO"
+    },
+    {
+      q: "Aussage: Die Bundeswehr nutzt für die operative Übertragung von Daten überwiegend asymmetrische Verschlüsselung.",
+      a: "Falsch (überwiegend symmetrisch wegen Performance/Sicherheit).",
+      o: ["Wahr", "Falsch (überwiegend symmetrisch wegen Performance/Sicherheit).", "Wahr, aber nur im Einsatzland.", "Wahr, außer bei Funkgeräten."],
+      m: "KRYPTO"
+    },
+
+    // --- NEUE FRAGEN: KATEGORISIERUNG KRYPTOMITTEL ---
+    {
+      q: "In welche Kategorie der Kryptomittel fällt eine SmartCard?",
+      a: "Kryptounterlagen",
+      o: ["Kryptogeräte", "Kryptomaterial", "Kryptounterlagen", "IT-Peripherie"],
+      m: "KRYPTO"
+    },
+    {
+      q: "In welche Kategorie fällt ein Kryptodatenträger (z. B. USB-Stick mit Schlüsseln)?",
+      a: "Kryptounterlagen",
+      o: ["Kryptogeräte", "Kryptounterlagen", "Hardware-Komponenten", "Kryptomaterial"],
+      m: "KRYPTO"
+    },
+    {
+      q: "Wie wird das Gerät ELCRODAT 4-2 kategorisiert?",
+      a: "Kryptomaterial (Kryptogerät)",
+      o: ["Kryptounterlage", "Kryptomaterial (Kryptogerät)", "Zubehörteil", "Kryptovariable"],
+      m: "KRYPTO"
+    },
+
+    // --- NEUE FRAGEN: KURIERWESEN (DETAIL) ---
+    {
+      q: "Welcher Grundsatz gilt für Sonderkurier und Kurierbegleiter beim Betreten eines Flugzeugs?",
+      a: "Als letzter einsteigen und als erster aussteigen.",
+      o: ["Zuerst einsteigen, um das Gepäck zu verstauen.", "Als letzter einsteigen und als erster aussteigen.", "Immer mit den Piloten einsteigen.", "Zusammen mit der Priority-Gruppe einsteigen."],
+      m: "KRYPTO"
+    },
+    {
+      q: "Darf das Kuriergepäck im Flugzeug von den Kurieren getrennt werden (z. B. im Frachtraum)?",
+      a: "Nein, es muss unter ständiger Aufsicht bleiben.",
+      o: ["Ja, wenn es ein versiegelter Container ist.", "Ja, bei Flügen über 4 Stunden.", "Nein, es muss unter ständiger Aufsicht bleiben.", "Nur wenn der Kapitän es anordnet."],
+      m: "KRYPTO"
     }
 
 ];
@@ -485,6 +546,7 @@ initQuiz(40);
 </script>
 </body>
 </html>
+
 
 
 
