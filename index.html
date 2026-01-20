@@ -255,6 +255,129 @@ const BANK = [
         a: "Ja, das ist richtig.", 
         o: ["Ja, das ist richtig.", "Nein, diese Modelle sind veraltet.", "Nur für polizeiliche Ermittlungen relevant.", "Nein, APTs nutzen keine erkennbaren Muster."], 
         m: "BEDROHUNGEN" 
+    },
+  // --- NEUE FRAGEN VOM 19.01.2026 (Bedrohungsmodellierung & Malware) ---
+    {
+      q: "Was ist der wesentliche Vorteil von Bedrohungsmodellierungen?",
+      a: "Sie bieten Einblick in das Verhalten von Angreifern.",
+      o: ["Sie garantieren 100%ige technische Sicherheit.", "Sie bieten Einblick in das Verhalten von Angreifern.", "Sie ersetzen die Notwendigkeit von Firewalls.", "Sie reduzieren die Kosten für Hardware."],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Aussage: TTPs sind sehr beständig und können dadurch leicht automatisiert erkannt werden. Ist das korrekt?",
+      a: "Falsch",
+      o: ["Richtig", "Falsch", "Nur bei Windows-Systemen", "Nur in der Cloud"],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Was ist ein wesentlicher Nachteil des Diamond Modells?",
+      a: "Es ist schwer auf komplexe Bedrohungen anwendbar.",
+      o: ["Es benötigt eine permanente Internetverbindung.", "Es ist schwer auf komplexe Bedrohungen anwendbar.", "Es ist nur für Phishing-Mails gedacht.", "Es wird vom BSI nicht mehr unterstützt."],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Wie wird die 'Living-off-the-Land' (LotL) Technik charakterisiert?",
+      a: "Es ist ein schwer erkennbarer Angriff, da systemeigene Werkzeuge genutzt werden.",
+      o: ["Ein Angriff, der nur physisch vor Ort stattfindet.", "Es ist ein schwer erkennbarer Angriff, da systemeigene Werkzeuge genutzt werden.", "Ein Angriff, der nur über WLAN-Signale erfolgt.", "Die Nutzung von illegaler Drittanbieter-Software."],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Welches Modell nutzt eine Matrix-Darstellung, um Taktiken und Techniken von Angreifern abzubilden?",
+      a: "MITRE ATT&CK",
+      o: ["Cyber Kill Chain", "Diamond Model", "MITRE ATT&CK", "PIMO/OPTI"],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Aussage: Das Framework MITRE ATT&CK fokussiert sich primär auf IOCs (Indicators of Compromise).",
+      a: "Falsch",
+      o: ["Wahr", "Falsch", "Nur bei APT-Angriffen", "Nur im Bereich VS-NfD"],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Definition: Ein Virus ist ein selbstreplizierender Code, der kein Wirtsprogramm benötigt.",
+      a: "Falsch",
+      o: ["Wahr", "Falsch", "Gilt nur für Makro-Viren", "Gilt nur für Bundeswehr-IT"],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Wie nennt man Schadsoftware, die sich als seriöse Sicherheitssoftware ausgibt?",
+      a: "Rougeware",
+      o: ["Spyware", "Adware", "Rougeware", "Ransomware"],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Was ist KEIN typischer Einflussfaktor (Einfallstor) für Ransomware?",
+      a: "MFA (Mehrfaktorauthentifizierung)",
+      o: ["Phishing", "MFA (Mehrfaktorauthentifizierung)", "RDP-Schwachstellen", "Ungepatchte Software"],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Was bezeichnet der Begriff 'Vishing'?",
+      a: "Phishing per Telefonanruf.",
+      o: ["Phishing per verschlüsselter E-Mail.", "Phishing über Videoplattformen.", "Phishing per Telefonanruf.", "Phishing durch Manipulation von USB-Sticks."],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Welche der folgenden Quellen ist KEINE Quelle für OSINT (Open Source Intelligence)?",
+      a: "Intranet der Bundeswehr",
+      o: ["Soziale Medien", "Öffentliche Behördenregister", "Zeitungsartikel", "Intranet der Bundeswehr"],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Definition: 'Credential Stuffing' beschreibt das Durchprobieren von häufig verwendeten Passwörtern bei einem Account.",
+      a: "Falsch",
+      o: ["Wahr", "Falsch", "Gilt nur für Administratoren", "Ist identisch mit Brute-Force"],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Was unterscheidet Spear-Phishing von regulärem Phishing?",
+      a: "Spear-Phishing umfasst gezielte Angriffe auf bestimmte Personen oder Organisationen.",
+      o: ["Es nutzt nur verschlüsselte Anhänge.", "Es wird ausschließlich über SMS versendet.", "Spear-Phishing umfasst gezielte Angriffe auf bestimmte Personen oder Organisationen.", "Es ist für Virenscanner unsichtbar."],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Was ist das Ziel von SEO-Poisoning?",
+      a: "Die Umleitung von Nutzern über Suchmaschinen auf schädliche Webseiten.",
+      o: ["Das massenhafte Versenden von Spam-Mails.", "Die Umleitung von Nutzern über Suchmaschinen auf schädliche Webseiten.", "Das Lahmlegen von Webservern durch Überlastung.", "Die Verschlüsselung von Datenbanken."],
+      m: "BEDROHUNGEN"
+    },
+    {
+      q: "Welche Maßnahme verringert NICHT das Risiko eines Zero-Day-Exploits?",
+      a: "Regelmäßige Backups",
+      o: ["Sandboxing", "Regelmäßige Backups", "Intrusion Detection Systeme (IDS)", "Netzsegmentierung"],
+      m: "BEDROHUNGEN"
+    },
+
+    // --- NEUE FRAGEN VOM 20.01.2026 (APT-Gruppen & Attribution) ---
+    {
+      q: "Was ist ein typisches Merkmal von APT-Gruppen (Advanced Persistent Threats)?",
+      a: "Langfristig angelegte Ziele und Vorgehensweisen.",
+      o: ["Kurze, impulsive Angriffe.", "Langfristig angelegte Ziele und Vorgehensweisen.", "Ausschließliche Nutzung von Standard-Malware.", "Zufällige Auswahl der Opfer."],
+      m: "APT"
+    },
+    {
+      q: "Aussage: APT-Gruppen arbeiten grundsätzlich immer im direkten Auftrag und mit Unterstützung eines Staates.",
+      a: "Falsch",
+      o: ["Wahr", "Falsch", "Gilt nur für Gruppen aus Russland", "Gilt nur für Gruppen aus China"],
+      m: "APT"
+    },
+    {
+      q: "Welche Technik nutzen APT-Gruppen bevorzugt, um initialen Zugang zu einem geschützten Netzwerk zu erhalten?",
+      a: "Spear-Phishing",
+      o: ["DDoS-Attacken", "Spear-Phishing", "SQL-Injection", "Physisches Aufbrechen von Serverräumen"],
+      m: "APT"
+    },
+    {
+      q: "Was trägt NICHT zur Attribution (Zuweisung der Täterschaft) von Cyberangriffen bei?",
+      a: "Mangelnde operative Sicherheitsmaßnahmen des Opfers.",
+      o: ["Analyse der verwendeten TTPs.", "Mangelnde operative Sicherheitsmaßnahmen des Opfers.", "Sprachliche Hinweise im Code.", "Zeitstempel der Aktivitäten (Arbeitszeiten)."],
+      m: "APT"
+    },
+    {
+      q: "Können das Diamond Modell und die Cyber Kill Chain dabei helfen, APT-Angriffe strukturiert zu beschreiben?",
+      a: "Wahr",
+      o: ["Wahr", "Falsch", "Nur das Diamond Modell ist geeignet", "Nur die Kill Chain ist geeignet"],
+      m: "BEDROHUNGEN"
     }
 
 ];
@@ -319,5 +442,6 @@ initQuiz(40);
 </script>
 </body>
 </html>
+
 
 
