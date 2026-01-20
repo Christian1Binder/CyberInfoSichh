@@ -130,7 +130,133 @@ const BANK = [
     // --- APT-DETAILS ---
     { q: "Was ist das Hauptziel von APT 10 (China)?", a: "Industriespionage und Diebstahl von geistigem Eigentum.", o: ["Zerstörung von Infrastruktur", "Industriespionage und Diebstahl von geistigem Eigentum.", "Bankraub", "Manipulation von Wahlen"], m: "BEDROHUNGEN" },
     { q: "Welche APT-Gruppe ist bekannt für den Einsatz der Schadsoftware 'Sandworm'?", a: "APT 44 (Russland/GRU)", o: ["APT 28", "APT 44 (Russland/GRU)", "APT 29", "APT 38"], m: "BEDROHUNGEN" },
-    { q: "Welches Modell hilft dabei, Angriffe aus der Sicht der Verteidiger zu simulieren (Red Teaming)?", a: "MITRE ATT&CK Matrix", o: ["Wasserfallmodell", "Diamond Model", "MITRE ATT&CK Matrix", "V-Modell"], m: "BEDROHUNGEN" }
+    { q: "Welches Modell hilft dabei, Angriffe aus der Sicht der Verteidiger zu simulieren (Red Teaming)?", a: "MITRE ATT&CK Matrix", o: ["Wasserfallmodell", "Diamond Model", "MITRE ATT&CK Matrix", "V-Modell"], m: "BEDROHUNGEN" },
+// --- NEUE FRAGEN: BEDROHUNGSMODELLIERUNG & TECHNIKEN ---
+    { 
+        q: "Was ist ein wesentlicher Vorteil von Bedrohungsmodellierung?", 
+        a: "Einblicke in das Verhalten von Angreifern zu erhalten", 
+        o: ["Einblicke in das Verhalten von Angreifern zu erhalten", "Vollständige Automatisierung der Abwehr", "Einsparung von IT-Personal", "Ersatz für physische Sicherheitsmaßnahmen"], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "TTPs (Tactics, Techniques & Procedures) sind sehr beständig und können deswegen leichter automatisiert erkannt werden. Ist diese Aussage korrekt?", 
+        a: "Nein, das ist falsch.", 
+        o: ["Ja, das ist richtig.", "Nein, das ist falsch.", "Nur bei privatem WLAN.", "Nur bei Hardware-Angriffen."], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Was ist einer der wesentlichen Nachteile des Diamond Models?", 
+        a: "Es ist schwer anwendbar auf komplexe Bedrohungen.", 
+        o: ["Es benötigt zu viel Rechenleistung.", "Es ist schwer anwendbar auf komplexe Bedrohungen.", "Es ist nur für Phishing-Mails geeignet.", "Es wurde vom BSI verboten."], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Living-off-the-Land (LotL) Techniken erschweren die Erkennung, da sie übliche, bereits vorhandene Software verwenden. Ist das korrekt?", 
+        a: "Ja, das ist richtig.", 
+        o: ["Ja, das ist richtig.", "Nein, das ist falsch.", "LotL bezieht sich nur auf Hardware-Diebstahl.", "LotL wird nur von Einzeltätern genutzt."], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Welches Modell ist für seine Matrix-Darstellung der Taktiken und Techniken von Angreifern bekannt?", 
+        a: "MITRE ATT&CK", 
+        o: ["Diamond Model", "Cyber Kill Chain", "MITRE ATT&CK", "PIMO-Modell"], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Liegt der primäre Fokus bei MITRE ATT&CK auf IOCs (Indicators of Compromise)?", 
+        a: "Nein, das ist falsch.", 
+        o: ["Ja, das ist richtig.", "Nein, das ist falsch.", "Nur bei Ransomware-Angriffen.", "Nur für VS-NfD eingestufte Netze."], 
+        m: "BEDROHUNGEN" 
+    },
+
+    // --- NEUE FRAGEN: MALWARE & SOCIAL ENGINEERING ---
+    { 
+        q: "Ein Virus ist ein selbstreplizierender Code, der kein Wirtsprogramm benötigt. Korrekt?", 
+        a: "Falsch, ein Wurm benötigt kein Wirtsprogramm.", 
+        o: ["Richtig.", "Falsch, ein Trojaner benötigt kein Wirtsprogramm.", "Falsch, ein Wurm benötigt kein Wirtsprogramm.", "Falsch, Malware benötigt immer Internet."], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Als seriöse Sicherheitssoftware getarnte Schadsoftware bezeichnet man als...", 
+        a: "Rougeware", 
+        o: ["Spyware", "Rougeware", "Adware", "Firmware"], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Was bezeichnet KEIN typisches Einfallstor für Ransomware?", 
+        a: "MFA (Mehrfaktorauthentifizierung)", 
+        o: ["Phishing-E-Mails", "MFA (Mehrfaktorauthentifizierung)", "RDP-Schwachstellen", "Ungepatchte VPN-Server"], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Was versteht man unter 'Vishing'?", 
+        a: "Phishing per Telefonanruf", 
+        o: ["Phishing per Video-Stream", "Phishing per Telefonanruf", "Verschlüsselung von Festplatten", "Abfangen von Funksignalen"], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Was beschreibt KEINE Quelle für OSINT (Open Source Intelligence)?", 
+        a: "Intranet der Bundeswehr", 
+        o: ["Soziale Medien", "Zeitungsartikel", "Öffentliche Datenbanken", "Intranet der Bundeswehr"], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Beim 'Credential Stuffing' werden häufig genutzte Passwörter (z.B. 'Passwort123') bei vielen verschiedenen Accounts getestet. Korrekt?", 
+        a: "Nein, das ist falsch (das wäre Password Spraying).", 
+        o: ["Ja, das ist richtig.", "Nein, das ist falsch (das wäre Password Spraying).", "Nein, das wäre Social Engineering.", "Ja, das ist das Standardvorgehen bei Brute Force."], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Was unterscheidet Spear-Phishing von regulärem Phishing?", 
+        a: "Es handelt sich um einen gezielten Angriff auf eine bestimmte Person oder Organisation.", 
+        o: ["Es wird nur über SMS verschickt.", "Es handelt sich um einen gezielten Angriff auf eine bestimmte Person oder Organisation.", "Es wird nur von staatlichen Akteuren genutzt.", "Es ist technisch nicht nachweisbar."], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Welches Ziel verfolgt SEO-Poisoning?", 
+        a: "Umleiten von Nutzern über Suchmaschinen auf schädliche Seiten.", 
+        o: ["Das Löschen von Google-Einträgen.", "Umleiten von Nutzern über Suchmaschinen auf schädliche Seiten.", "Das Hacken von Datenbanken über SQL-Injections.", "Das Versenden von Spam-Mails."], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Welche Maßnahme verringert das Risiko von Zero-Day-Exploits NICHT?", 
+        a: "Regelmäßige Backups", 
+        o: ["Netzsegmentierung", "Sandboxing", "Regelmäßige Backups", "Intrusion Detection Systeme"], 
+        m: "BEDROHUNGEN" 
+    },
+
+    // --- NEUE FRAGEN: APT & ATTRIBUTION ---
+    { 
+        q: "Was ist ein typisches Merkmal von APT-Gruppen?", 
+        a: "Langfristig angelegter, gezielter Angriff.", 
+        o: ["Kurze, zufällige Attacken.", "Langfristig angelegter, gezielter Angriff.", "Verwendung von ausschließlich bekannter Malware.", "Ziel ist immer nur finanzieller Gewinn."], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Handelt es sich bei APT-Gruppen grundsätzlich NUR um Bedrohungsakteure, die im Auftrag einer Regierung handeln?", 
+        a: "Nein, das ist falsch.", 
+        o: ["Ja, das ist die Definition.", "Nein, das ist falsch.", "Nur wenn sie aus Europa kommen.", "Ja, aber nur im Kriegsfall."], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Welche Technik wird oft von APT-Gruppen genutzt, um den Erstzugang zu einem Netzwerk zu erhalten?", 
+        a: "Spear-Phishing", 
+        o: ["DDoS-Angriffe", "Spear-Phishing", "Physischer Einbruch", "Brute-Force auf WLAN-Passwörter"], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Welcher Punkt trägt NICHT zur Schwierigkeit der Attribution (Zuweisung) von Cyberangriffen bei?", 
+        a: "Mangelhafte operative Sicherheitsmaßnahmen der Verteidiger.", 
+        o: ["Einsatz von False-Flag-Operationen.", "Nutzung von Standard-Malware.", "Mangelhafte operative Sicherheitsmaßnahmen der Verteidiger.", "Verschleierung über Proxy-Server."], 
+        m: "BEDROHUNGEN" 
+    },
+    { 
+        q: "Helfen Bedrohungsmodelle (Diamond Model, Cyber Kill Chain) dabei, das Angriffsverhalten von APT-Gruppen strukturiert zu beschreiben?", 
+        a: "Ja, das ist richtig.", 
+        o: ["Ja, das ist richtig.", "Nein, diese Modelle sind veraltet.", "Nur für polizeiliche Ermittlungen relevant.", "Nein, APTs nutzen keine erkennbaren Muster."], 
+        m: "BEDROHUNGEN" 
+    }
+
 ];
 
 // Ergänze hier im Script weitere Fragen-Objekte nach demselben Schema bis 160...
@@ -193,4 +319,5 @@ initQuiz(40);
 </script>
 </body>
 </html>
+
 
