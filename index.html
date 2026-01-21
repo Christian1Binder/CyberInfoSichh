@@ -423,7 +423,7 @@ const BANK = [
     { q: "Was bedeutet 'MEP'?", a: "Mess- und Prüfplakette (für die Abstrahlprüfung).", e: "Kennzeichnet technisch geprüfte Geräte.", o: ["Militärische Einzel-Prüfung", "Mess- und Prüfplakette (für die Abstrahlprüfung).", "Mobile Elektronik-Prävention", "Management-Einstufungs-Protokoll"], m: "ABSTRAHLUNG" },
     { q: "In welchen Abständen muss eine Wiederholungsmessung für mobile IT-Systeme (MEP) erfolgen?", a: "Spätestens nach 12 Monaten.", e: "Mobile Geräte unterliegen höherem Verschleiß, daher jährliche Prüfung.", o: ["Alle 6 Monate", "Spätestens nach 12 Monaten.", "Alle 24 Monate", "Nur bei Defekt"], m: "ABSTRAHLUNG" },
     { q: "In welchem Dokument der Bundeswehr ist die Abstrahlsicherheit primär geregelt?", a: "A-960/1", e: "Die zentrale Vorschrift für Abstrahlsicherheit.", o: ["A-960/1", "ZDv 3/12", "IT-Grundschutz", "Bw-Krypto-Handbuch"], m: "ABSTRAHLUNG" },
-    { q: "Was kennzeichnet die 'Zone 1' im Zonenmodell?", a: "Ein Bereich mit höherem Schutzabstand als Zone 0.", e: "Zone 1 erfordert oft Geräte mit SDIP 27 Level B (mittlere Schirmung).", o: ["Öffentlicher Raum", "Höchste Schutzzone im Servergehäuse", "Ein Bereich mit kontrolliertem Zugang, aber geringerem Schutzabstand als Zone 0.", "Ein mobiles Zelt im Einsatz"], m: "ABSTRAHLUNG" },
+    { q: "Was kennzeichnet die 'Zone 1' im Zonenmodell?", a: "Ein Bereich mit höherem Schutzabstand als Zone 0.", e: "Zone 1 erfordert oft Geräte mit SDIP 27 Level B (mittlere Schirmung).", o: ["Öffentlicher Raum", "Höchste Schutzzone im Servergehäuse", "Ein Bereich mit höherem Schutzabstand als Zone 0.", "Ein mobiles Zelt im Einsatz"], m: "ABSTRAHLUNG" },
     { q: "Welche Farbe hat eine gültige MEP-Plakette?", a: "Rot", e: "Die rote Plakette signalisiert die bestandenene Messung.", o: ["Grün", "Gelb", "Blau", "Rot"], m: "ABSTRAHLUNG" },
     { q: "Was muss geschehen, wenn ein Gerät mit MEP-Plakette repariert wurde (Gehäuseöffnung)?", a: "Es muss eine neue Kurzvermessung durchgeführt werden.", e: "Das Öffnen des Gehäuses kann die Schirmung beschädigen.", o: ["Nichts", "Es muss weggeworfen werden", "Es muss eine neue Kurzvermessung durchgeführt werden.", "Es muss nur neu gestartet werden"], m: "ABSTRAHLUNG" },
     { q: "Was beschreibt der Begriff 'Kompromittierende Strahlung'?", a: "Ungewollte elektromagnetische Emissionen, die den Informationsgehalt verraten.", e: "Das Signal 'leckt' aus dem Kabel oder Monitor in die Luft.", o: ["Radioaktive Strahlung aus Monitoren", "Strahlung, die Hardware zerstört", "Ungewollte elektromagnetische Emissionen, die den Informationsgehalt verraten.", "WLAN-Signale, die das Internet verlangsamen"], m: "ABSTRAHLUNG" },
@@ -667,6 +667,7 @@ modules.forEach(m => {
 </script>
 </body>
 </html>
+
 
 
 
