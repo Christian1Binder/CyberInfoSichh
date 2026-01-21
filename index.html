@@ -403,10 +403,17 @@ const BANK = [
         m: "SCHUTZBEREICHE" 
     },
     { 
-        q: "Ist 7-Zip eine zulässige Verschlüsselung für Schutzbereich 3?", 
-        a: "Nein.", 
-        e: "Für die höchste Schutzstufe SB 3 (z.B. Gesundheitsdaten) sind robustere, zugelassene Verfahren wie Chiasmus oder GnuPG VS-Desktop vorgeschrieben.", 
-        o: ["Ja, immer.", "Ja, wenn das Passwort lang genug ist.", "Nein.", "Nur in Ausnahmefällen."], 
+        q: "Ist 7-Zip eine zulässige Verschlüsselungsmethode für den Schutzbereich 3?", 
+        a: "Ja.", 
+        e: "Gemäß der Übersicht zu Schutzmaßnahmen sind neben Chiasmus/GnuPG auch 7-Zip, PDF-Verschlüsselung und MS Office (AES256) für den Schutzbereich 3 zulässig.", 
+        o: ["Nein, nur Chiasmus ist erlaubt.", "Ja.", "Nein, nur für SB 2.", "Nur in Verbindung mit SINA."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Welche der folgenden Verschlüsselungen ist für den Schutzbereich 3 ZULÄSSIG?", 
+        a: "MS Office ab Version 2016 mit AES256.", 
+        e: "Für SB 3 sind neben PKIBw/GnuPG auch gängige Tools wie MS Office (AES256), 7-Zip und PDF zulässig.", 
+        o: ["Alte MS Office Versionen (vor 2016).", "MS Office ab Version 2016 mit AES256.", "Ein einfaches Windows-Passwort.", "Verschlüsselung ist für SB 3 nicht notwendig."], 
         m: "SCHUTZBEREICHE" 
     },
 
@@ -661,4 +668,5 @@ modules.forEach(m => {
 </script>
 </body>
 </html>
+
 
