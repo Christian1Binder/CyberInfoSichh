@@ -429,8 +429,8 @@ const BANK = [
     { q: "Was beschreibt der Begriff 'Kompromittierende Strahlung'?", a: "Ungewollte elektromagnetische Emissionen, die den Informationsgehalt verraten.", e: "Das Signal 'leckt' aus dem Kabel oder Monitor in die Luft.", o: ["Radioaktive Strahlung aus Monitoren", "Strahlung, die Hardware zerstört", "Ungewollte elektromagnetische Emissionen, die den Informationsgehalt verraten.", "WLAN-Signale, die das Internet verlangsamen"], m: "ABSTRAHLUNG" },
 
     // --- KRYPTOSICHERHEIT ---
-    { q: "Wo befindet sich die NDA (National Distribution Agency) der Bundeswehr?", a: "Rheinbach", e: "Das IT-Zentrum Bw in Rheinbach ist die zentrale Verteilstelle für Schlüssel in DEU.", o: ["Bonn", "Berlin", "Rheinbach", "München"], m: "KRYPTO" },
-    { q: "Welches Krypto-ATZ ist für den Bereich NORD zuständig?", a: "Wilhelmshaven (Kryptozentrum Marine)", e: "ATZ (Austauschzentren) sind regional verteilt. WHV versorgt den Norden/Marine.", o: ["Kiel", "Rostock", "Wilhelmshaven (Kryptozentrum Marine)", "Oldenburg"], m: "KRYPTO" },
+    
+   
     { q: "Wer darf die Vernichtung von Kryptomitteln durchführen?", a: "Der Kryptoverwalter in Anwesenheit eines Zeugen.", e: "Vier-Augen-Prinzip ist Pflicht. Vernichtung muss protokolliert werden.", o: ["Jeder Soldat", "Nur der IT-Offizier", "Der Kryptoverwalter in Anwesenheit eines Zeugen.", "Nur externes Fachpersonal"], m: "KRYPTO" },
     { q: "Welches Papier-Vernichtungsverfahren ist bei Kryptomitteln NICHT zulässig?", a: "Einfacher Streifenschnitt breiter als 1mm.", e: "Streifen sind zu leicht rekonstruierbar. Es braucht Partikel-/Kreuzschnitt.", o: ["Verbrennen", "Verflüssigen", "Einfacher Streifenschnitt breiter als 1mm.", "Kreuzschnitt (Partikelgröße max. 0,5x1,5mm)"], m: "KRYPTO" },
     { q: "In welcher Situation ist eine 'Notvernichtung' einzuleiten?", a: "Bei unmittelbar drohendem Zugriff durch Unbefugte oder den Feind.", e: "Emergency Destruction: Bevor der Feind den Schlüssel kriegt, wird er zerstört.", o: ["Wenn der Schrank voll ist", "Bei unmittelbar drohendem Zugriff durch Unbefugte oder den Feind.", "Wenn das Haltbarkeitsdatum abgelaufen ist", "Bei einem normalen Software-Update"], m: "KRYPTO" },
@@ -448,7 +448,6 @@ const BANK = [
     { q: "Aussage: Symmetrische Verschlüsselungsmechanismen (z. B. DES) sind grundsätzlich sicherer als asymmetrische Verschlüsselungen.", a: "Falsch", e: "Nicht sicherer, aber meist performanter (schneller). Sicherheit hängt von der Schlüssellänge ab.", o: ["Wahr", "Falsch", "Nur bei großen Dateien wahr", "Gilt nur für das NATO-Netz"], m: "KRYPTO" },
     { q: "Worauf basiert die Sicherheit moderner asymmetrischer Kryptoverfahren?", a: "Auf der Geheimhaltung des privaten Schlüssels (Verfahren ist bekannt).", e: "Kerckhoffs’ Prinzip: Nur der Schlüssel muss geheim sein, nicht der Algorithmus.", o: ["Auf der Geheimhaltung des Verschlüsselungsverfahrens.", "Auf der Länge der Nachricht.", "Auf der Geheimhaltung des privaten Schlüssels (Verfahren ist bekannt).", "Auf der Geschwindigkeit der Hardware."], m: "KRYPTO" },
     { q: "Womit beschäftigt sich die Kryptoanalyse primär?", a: "Dem Brechen von Kryptographieverfahren ohne Kenntnis des Schlüssels.", e: "Suche nach mathematischen Schwachstellen im Code.", o: ["Dem Erstellen neuer Codes.", "Dem Brechen von Kryptographieverfahren ohne Kenntnis des Schlüssels.", "Der physischen Vernichtung von Krypto-Geräten.", "Der Verwaltung von Passwörtern."], m: "KRYPTO" },
-    { q: "Welche Dienststelle fungiert als NDA GE (National Distribution Agency Germany)?", a: "Das IT-Zentrum Bundeswehr (ITZBw) in Rheinbach.", e: "Zentrale Schlüsselverteilstelle der Bw.", o: ["Das Bundesamt für Sicherheit in der Informationstechnik (BSI).", "Das IT-Zentrum Bundeswehr (ITZBw) in Rheinbach.", "Das Kommando CIR in Bonn.", "Das Logistikzentrum der Bundeswehr in Wilhelmshaven."], m: "KRYPTO" },
     { q: "Wie viele Nationale Verteilungsorganisationen (NDA) gibt es für Kryptomaterial in Deutschland?", a: "Genau eine (Zentralisierung).", e: "Nur eine nationale Stelle (Rheinbach), darunter regionale ATZs.", o: ["Eine pro Teilstreitkraft.", "Genau eine (Zentralisierung).", "Vier (analog zu den ATZ).", "Sechzehn (eine pro Bundesland)."], m: "KRYPTO" },
     { q: "Wer trägt die Gesamtverantwortung für das Kryptomaterial innerhalb einer Dienststelle?", a: "Der Dienststellenleiter (DStL).", e: "Der Leiter haftet immer.", o: ["Der Kryptoverwalter (KryVw).", "Der Dienststellenleiter (DStL).", "Der S6-Offizier.", "Der Kryptobeauftragte (KryB)."], m: "KRYPTO" },
     { q: "Aussage: Die Bundeswehr nutzt für die operative Übertragung von Daten überwiegend asymmetrische Verschlüsselung.", a: "Falsch (überwiegend symmetrisch wegen Performance/Sicherheit).", e: "Symmetrisch ist schneller für Massendaten (Funk, WAN).", o: ["Wahr", "Falsch (überwiegend symmetrisch wegen Performance/Sicherheit).", "Wahr, aber nur im Einsatzland.", "Wahr, außer bei Funkgeräten."], m: "KRYPTO" },
@@ -668,5 +667,6 @@ modules.forEach(m => {
 </script>
 </body>
 </html>
+
 
 
