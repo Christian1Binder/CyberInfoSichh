@@ -171,7 +171,7 @@ const BANK = [
     { q: "Living-off-the-Land (LotL) Techniken erschweren die Erkennung, da sie übliche, bereits vorhandene Software verwenden. Ist das korrekt?", a: "Ja, das ist richtig.", e: "Nutzung von PowerShell, WMI etc. statt eigener Malware-Dateien.", o: ["Ja, das ist richtig.", "Nein, das ist falsch.", "LotL bezieht sich nur auf Hardware-Diebstahl.", "LotL wird nur von Einzeltätern genutzt."], m: "BEDROHUNGEN" },
     { q: "Liegt der primäre Fokus bei MITRE ATT&CK auf IOCs (Indicators of Compromise)?", a: "Nein, das ist falsch.", e: "Fokus liegt auf Taktiken und Techniken (Verhalten), nicht auf einfachen IOCs.", o: ["Ja, das ist richtig.", "Nein, das ist falsch.", "Nur bei Ransomware-Angriffen.", "Nur für VS-NfD eingestufte Netze."], m: "BEDROHUNGEN" },
     { q: "Ein Virus ist ein selbstreplizierender Code, der kein Wirtsprogramm benötigt. Korrekt?", a: "Falsch, ein Wurm benötigt kein Wirtsprogramm.", e: "Virus = braucht Wirt (Datei). Wurm = eigenständig im Netz.", o: ["Richtig.", "Falsch, ein Trojaner benötigt kein Wirtsprogramm.", "Falsch, ein Wurm benötigt kein Wirtsprogramm.", "Falsch, Malware benötigt immer Internet."], m: "BEDROHUNGEN" },
-    { q: "Als seriöse Sicherheitssoftware getarnte Schadsoftware bezeichnet man als...", a: "Rougeware", e: "Auch 'Scareware' genannt. Täuscht Infektion vor, um Geld zu erpressen.", o: ["Spyware", "Rougeware", "Adware", "Firmware"], m: "BEDROHUNGEN" },
+    { q: "Als seriöse Sicherheitssoftware getarnte Schadsoftware bezeichnet man als...", a: "Rogueware", e: "Auch 'Scareware' genannt. Täuscht Infektion vor, um Geld zu erpressen.", o: ["Spyware", "Rogueware", "Adware", "Firmware"], m: "BEDROHUNGEN" },
     { q: "Was bezeichnet KEIN typisches Einfallstor für Ransomware?", a: "MFA (Mehrfaktorauthentifizierung)", e: "MFA verhindert Angriffe. Phishing, RDP und Schwachstellen ermöglichen sie.", o: ["Phishing-E-Mails", "MFA (Mehrfaktorauthentifizierung)", "RDP-Schwachstellen", "Ungepatchte VPN-Server"], m: "BEDROHUNGEN" },
     { q: "Was versteht man unter 'Vishing'?", a: "Phishing per Telefonanruf", e: "Voice Phishing (z.B. Fake-Support-Anrufe).", o: ["Phishing per Video-Stream", "Phishing per Telefonanruf", "Verschlüsselung von Festplatten", "Abfangen von Funksignalen"], m: "BEDROHUNGEN" },
     { q: "Was beschreibt KEINE Quelle für OSINT (Open Source Intelligence)?", a: "Intranet der Bundeswehr", e: "OSINT nutzt nur öffentlich zugängliche Quellen. Das Intranet ist intern/geschlossen.", o: ["Soziale Medien", "Zeitungsartikel", "Öffentliche Datenbanken", "Intranet der Bundeswehr"], m: "BEDROHUNGEN" },
@@ -667,6 +667,7 @@ modules.forEach(m => {
 </script>
 </body>
 </html>
+
 
 
 
