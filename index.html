@@ -164,7 +164,7 @@ const BANK = [
     { q: "Was versteht man unter 'Weaponization'?", a: "Koppelung eines Exploits mit einer Hintertür zu einem auslieferbaren Paket.", e: "Der Bau der 'Cyber-Waffe' (z.B. PDF mit Exploit).", o: ["Das physische Bewaffnen von Wachposten", "Koppelung eines Exploits mit einer Hintertür zu einem auslieferbaren Paket.", "Das Scannen von Ports", "Das Verschlüsseln der Festplatte"], m: "BEDROHUNGEN" },
     { q: "Was ist ein 'IOC' (Indicator of Compromise)?", a: "Ein technisches Merkmal (z.B. Hash, IP), das auf eine Infektion hinweist.", e: "Spuren eines Angriffs (Forensik), z.B. C2-Server-IP oder Datei-Hash.", o: ["Ein Zertifikat für sichere Software", "Ein technisches Merkmal (z.B. Hash, IP), das auf eine Infektion hinweist.", "Ein spezieller Dienstgrad im CIR", "Eine Methode zur Passwort-Verschlüsselung"], m: "BEDROHUNGEN" },
     { q: "Was ist 'Social Engineering'?", a: "Die Manipulation von Menschen, um an geheime Informationen zu gelangen.", e: "Angriff auf die 'Human Firewall'.", o: ["Das Programmieren von sozialen Netzwerken", "Die Manipulation von Menschen, um an geheime Informationen zu gelangen.", "Ein spezieller Ingenieurstudiengang", "Das Hacken von Datenbanken"], m: "BEDROHUNGEN" },
-    { q: "Welches Modell hilft dabei, Angriffe aus der Sicht der Verteidiger zu simulieren (Red Teaming)?", a: "MITRE ATT&CK Matrix", e: "Red Teams nutzen ATT&CK, um realistische Angriffsszenarien nachzubauen.", o: ["Wasserfallmodell", "Diamond Model", "MITRE ATT&CK Matrix", "V-Modell"], m: "BEDROHUNGEN" },
+    { q: "Welches Modell hilft dabei, Angriffe aus der Sicht der Verteidiger zu simulieren (Blue Teaming)?", a: "MITRE ATT&CK Matrix", e: "Blue Teams nutzen ATT&CK, um realistische Angriffsszenarien nachzubauen.", o: ["Wasserfallmodell", "Diamond Model", "MITRE ATT&CK Matrix", "V-Modell"], m: "BEDROHUNGEN" },
     { q: "Was ist ein wesentlicher Vorteil von Bedrohungsmodellierung?", a: "Einblicke in das Verhalten von Angreifern zu erhalten", e: "Weg von reiner Technik, hin zum Verstehen des Gegners.", o: ["Einblicke in das Verhalten von Angreifern zu erhalten", "Vollständige Automatisierung der Abwehr", "Einsparung von IT-Personal", "Ersatz für physische Sicherheitsmaßnahmen"], m: "BEDROHUNGEN" },
     { q: "TTPs (Tactics, Techniques & Procedures) sind sehr beständig und können deswegen leichter automatisiert erkannt werden. Ist diese Aussage korrekt?", a: "Nein, das ist falsch.", e: "TTPs sind schwer zu erkennen, da sie oft legitimes Verhalten simulieren. Hashwerte sind leicht zu erkennen.", o: ["Ja, das ist richtig.", "Nein, das ist falsch.", "Nur bei privatem WLAN.", "Nur bei Hardware-Angriffen."], m: "BEDROHUNGEN" },
     { q: "Was ist ein wesentlicher Nachteil des Diamond Models?", a: "Es ist schwer anwendbar auf komplexe Bedrohungen.", e: "Es bildet komplexe Angriffsketten (Chains) oft schlechter ab als die Kill Chain.", o: ["Es benötigt zu viel Rechenleistung.", "Es ist schwer anwendbar auf komplexe Bedrohungen.", "Es ist nur für Phishing-Mails geeignet.", "Es wurde vom BSI verboten."], m: "BEDROHUNGEN" },
@@ -667,6 +667,7 @@ modules.forEach(m => {
 </script>
 </body>
 </html>
+
 
 
 
