@@ -155,9 +155,7 @@ const BANK = [
     // --- BEDROHUNGEN & APT ---
     { q: "Welche Phase der Cyber Kill Chain beschreibt das Ausnutzen einer Sicherheitslücke auf dem Zielsystem?", a: "Exploitation", e: "Hier wird der Schadcode ausgeführt, um die Kontrolle zu übernehmen (z.B. Buffer Overflow).", o: ["Weaponization", "Delivery", "Exploitation", "Installation"], m: "BEDROHUNGEN" },
     { q: "In der 'Pyramid of Pain' sind Hash-Werte für Angreifer leicht zu ändern. Welches Element ist am schwierigsten zu ändern?", a: "TTPs (Tactics, Techniques & Procedures)", e: "Verhalten zu ändern erfordert Umschulung und Neuentwicklung beim Angreifer.", o: ["IP-Adressen", "Domainnamen", "Werkzeuge", "TTPs (Tactics, Techniques & Procedures)"], m: "BEDROHUNGEN" },
-    { q: "Welcher Bedrohungsakteur wird oft mit Russland in Verbindung gebracht und griff u.a. den Deutschen Bundestag an?", a: "APT 28 (Fancy Bear)", e: "APT 28 wird dem russischen GRU zugeordnet.", o: ["APT 10", "APT 28 (Fancy Bear)", "APT 38", "APT 1"], m: "BEDROHUNGEN" },
     { q: "Was ist das Hauptmerkmal eines 'APT' (Advanced Persistent Threat)?", a: "Langanhaltende, zielgerichtete und hochkomplexe Angriffe.", e: "Persistenz ist der Schlüssel: Der Angreifer will dauerhaft im Netz bleiben.", o: ["Ein automatisierter Virenscan", "Ein kurzer, zufälliger Angriff", "Langanhaltende, zielgerichtete und hochkomplexe Angriffe.", "Ein Angriff durch gelangweilte Jugendliche"], m: "BEDROHUNGEN" },
-    { q: "Welche APT-Gruppe ist bekannt für Finanzraub und Angriffe auf das SWIFT-System (Nordkorea)?", a: "APT 38 (Lazarus Group)", e: "Nordkorea nutzt Cyberangriffe primär zur Devisenbeschaffung.", o: ["APT 29", "APT 10", "APT 38 (Lazarus Group)", "APT 44"], m: "BEDROHUNGEN" },
     { q: "Was beschreibt 'Lateral Movement'?", a: "Das Ausbreiten des Angreifers innerhalb des Netzwerks von System zu System.", e: "Bewegung vom Einstiegspunkt (Patient Zero) hin zu den wertvollen Daten.", o: ["Das Herunterladen von Daten", "Das Löschen von Log-Dateien", "Das Ausbreiten des Angreifers innerhalb des Netzwerks von System zu System.", "Die erste Infektion per E-Mail"], m: "BEDROHUNGEN" },
     { q: "Was beschreibt die 'Reconnaissance' in der Cyber Kill Chain?", a: "Das Sammeln von Informationen über das Ziel.", e: "Aufklärung: OSINT, Scans, E-Mail-Adressen sammeln vor dem Angriff.", o: ["Das Erstellen von Exploits", "Das Sammeln von Informationen über das Ziel.", "Das Installieren einer Backdoor", "Den Abfluss von Daten"], m: "BEDROHUNGEN" },
     { q: "Welches Framework bietet eine Wissensdatenbank für Taktiken und Techniken von Angreifern basierend auf Realwelt-Beobachtungen?", a: "MITRE ATT&CK", e: "Der Industriestandard zur Beschreibung von Angreiferverhalten (TTPs).", o: ["Cyber Kill Chain", "Diamond Model", "MITRE ATT&CK", "ISO 27001"], m: "BEDROHUNGEN" },
@@ -166,8 +164,6 @@ const BANK = [
     { q: "Was versteht man unter 'Weaponization'?", a: "Koppelung eines Exploits mit einer Hintertür zu einem auslieferbaren Paket.", e: "Der Bau der 'Cyber-Waffe' (z.B. PDF mit Exploit).", o: ["Das physische Bewaffnen von Wachposten", "Koppelung eines Exploits mit einer Hintertür zu einem auslieferbaren Paket.", "Das Scannen von Ports", "Das Verschlüsseln der Festplatte"], m: "BEDROHUNGEN" },
     { q: "Was ist ein 'IOC' (Indicator of Compromise)?", a: "Ein technisches Merkmal (z.B. Hash, IP), das auf eine Infektion hinweist.", e: "Spuren eines Angriffs (Forensik), z.B. C2-Server-IP oder Datei-Hash.", o: ["Ein Zertifikat für sichere Software", "Ein technisches Merkmal (z.B. Hash, IP), das auf eine Infektion hinweist.", "Ein spezieller Dienstgrad im CIR", "Eine Methode zur Passwort-Verschlüsselung"], m: "BEDROHUNGEN" },
     { q: "Was ist 'Social Engineering'?", a: "Die Manipulation von Menschen, um an geheime Informationen zu gelangen.", e: "Angriff auf die 'Human Firewall'.", o: ["Das Programmieren von sozialen Netzwerken", "Die Manipulation von Menschen, um an geheime Informationen zu gelangen.", "Ein spezieller Ingenieurstudiengang", "Das Hacken von Datenbanken"], m: "BEDROHUNGEN" },
-    { q: "Was ist das Hauptziel von APT 10 (China)?", a: "Industriespionage und Diebstahl von geistigem Eigentum.", e: "Fokus liegt auf Technologie-Diebstahl (Cloud Hopper Kampagne).", o: ["Zerstörung von Infrastruktur", "Industriespionage und Diebstahl von geistigem Eigentum.", "Bankraub", "Manipulation von Wahlen"], m: "BEDROHUNGEN" },
-    { q: "Welche APT-Gruppe ist bekannt für den Einsatz der Schadsoftware 'Sandworm'?", a: "APT 44 (Russland/GRU)", e: "Sandworm ist für Angriffe auf kritische Infrastruktur (Stromnetz Ukraine) bekannt.", o: ["APT 28", "APT 44 (Russland/GRU)", "APT 29", "APT 38"], m: "BEDROHUNGEN" },
     { q: "Welches Modell hilft dabei, Angriffe aus der Sicht der Verteidiger zu simulieren (Red Teaming)?", a: "MITRE ATT&CK Matrix", e: "Red Teams nutzen ATT&CK, um realistische Angriffsszenarien nachzubauen.", o: ["Wasserfallmodell", "Diamond Model", "MITRE ATT&CK Matrix", "V-Modell"], m: "BEDROHUNGEN" },
     { q: "Was ist ein wesentlicher Vorteil von Bedrohungsmodellierung?", a: "Einblicke in das Verhalten von Angreifern zu erhalten", e: "Weg von reiner Technik, hin zum Verstehen des Gegners.", o: ["Einblicke in das Verhalten von Angreifern zu erhalten", "Vollständige Automatisierung der Abwehr", "Einsparung von IT-Personal", "Ersatz für physische Sicherheitsmaßnahmen"], m: "BEDROHUNGEN" },
     { q: "TTPs (Tactics, Techniques & Procedures) sind sehr beständig und können deswegen leichter automatisiert erkannt werden. Ist diese Aussage korrekt?", a: "Nein, das ist falsch.", e: "TTPs sind schwer zu erkennen, da sie oft legitimes Verhalten simulieren. Hashwerte sind leicht zu erkennen.", o: ["Ja, das ist richtig.", "Nein, das ist falsch.", "Nur bei privatem WLAN.", "Nur bei Hardware-Angriffen."], m: "BEDROHUNGEN" },
@@ -200,6 +196,219 @@ const BANK = [
     { q: "Welches System dient der Filterung von ausgehendem Webverkehr für interne Nutzer?", a: "Forward Proxy", e: "Clients greifen über den Forward Proxy auf das Internet zu (Kontrolle, Caching).", o: ["Reverse Proxy", "Forward Proxy", "WAF", "Honey Pot"], m: "SCHUTZKONZEPTE" },
     { q: "Wer unterstützt den Dienststellenleiter fachlich bei der Umsetzung der Informationssicherheit?", a: "Der Informationssicherheitsbeauftragte (ISB).", e: "Der ISB ist der zentrale Ansprechpartner und Koordinator für InfoSi.", o: ["Der S6-Offizier", "Der IT-Administrator", "Der Informationssicherheitsbeauftragte (ISB).", "Der Spieß"], m: "SCHUTZKONZEPTE" },
     { q: "Welche Aufgabe hat der IT-Sicherheitsbeauftragte (IT-SiB)?", a: "Umsetzung technischer Sicherheitsmaßnahmen im IT-System.", o: ["Schreiben von Gesetzen", "Umsetzung technischer Sicherheitsmaßnahmen im IT-System.", "Kontrolle des Speiseplans", "Überprüfung der körperlichen Fitness"], m: "SCHUTZKONZEPTE" },
+    // --- NEUE FRAGEN: DATENSCHUTZ & GRUNDLAGEN (Gemäß Präsentation) ---
+    { 
+        q: "Was versteht man unter dem Gewährleistungsziel 'Nichtverkettung'?", 
+        a: "Zu unterschiedlichen Zwecken erhobene Daten dürfen nicht einfach zusammengeführt werden.", 
+        e: "Daten müssen zweckgebunden verarbeitet werden. Eine wahllose Verknüpfung verschiedener Datenbanken ist unzulässig.", 
+        o: ["Daten müssen nach 10 Jahren automatisch gelöscht werden.", "Daten dürfen nur verschlüsselt gespeichert werden.", "Zu unterschiedlichen Zwecken erhobene Daten dürfen nicht einfach zusammengeführt werden.", "Der Zugriff auf Daten muss lückenlos protokolliert werden."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Welche Daten gehören zu den 'Besonderen personenbezogenen Daten' (BPersDat) gemäß Art. 9 DSGVO?", 
+        a: "Gesundheitsdaten, religiöse Überzeugung oder biometrische Daten.", 
+        e: "Diese Daten gelten als besonders sensibel und schutzbedürftig, da ihr Missbrauch tiefgreifende Auswirkungen auf die Persönlichkeitsrechte hat.", 
+        o: ["Name, Dienstgrad und dienstliche Telefonnummer.", "Gesundheitsdaten, religiöse Überzeugung oder biometrische Daten.", "Private Anschrift und Bankverbindung.", "Personalnummer und Beurteilungen."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Welches Gewährleistungsziel fordert, dass Betroffene ihre Rechte (z.B. Löschung, Auskunft) wahrnehmen können?", 
+        a: "Intervenierbarkeit.", 
+        e: "Der Betroffene muss in den Datenverarbeitungsprozess 'intervenieren' können, um z.B. Fehler zu korrigieren oder Löschungen zu beantragen.", 
+        o: ["Transparenz.", "Intervenierbarkeit.", "Nichtverkettung.", "Integrität."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Was besagt das Prinzip der 'Datenminimierung'?", 
+        a: "Die Verarbeitung ist auf das notwendige und dem Zweck angemessene Maß zu beschränken.", 
+        e: "Es dürfen keine Daten 'auf Vorrat' gesammelt werden. Nur das, was für den konkreten Auftrag wirklich gebraucht wird, darf erhoben werden.", 
+        o: ["Daten müssen so klein wie möglich komprimiert werden.", "Die Verarbeitung ist auf das notwendige und dem Zweck angemessene Maß zu beschränken.", "Es dürfen maximal 100 Datensätze pro Datei gespeichert werden.", "Daten dürfen nur auf USB-Sticks gespeichert werden."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Welchem Schutzbereich werden 'Besondere personenbezogene Daten' (BPersDat) immer zugeordnet?", 
+        a: "Schutzbereich 3.", 
+        e: "Aufgrund des hohen Schadenspotenzials für den Betroffenen fallen BPersDat (z.B. Gesundheit) immer in die höchste Schutzkategorie.", 
+        o: ["Schutzbereich 1.", "Schutzbereich 2.", "Schutzbereich 3.", "Schutzbereich 4."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Was zählt NICHT zu den 'Besonderen personenbezogenen Daten' (BPersDat)?", 
+        a: "Das private Bankkonto.", 
+        e: "Bankdaten sind zwar sensibel (Schutzbereich 2), gehören aber laut Art. 9 DSGVO nicht zur Kategorie der BPersDat (wie Ethnie, Religion, Gesundheit).", 
+        o: ["Die ethnische Herkunft.", "Die religiöse Überzeugung.", "Das private Bankkonto.", "Gesundheitsdaten."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Was ist das Ziel der 'Transparenz' im Datenschutz?", 
+        a: "Es muss erkennbar sein, wer welche Daten wann und wozu verarbeitet.", 
+        e: "Der Betroffene (und die Aufsicht) muss jederzeit nachvollziehen können, was mit den Daten geschieht. Keine 'Black Box'.", 
+        o: ["Daten müssen für jeden öffentlich einsehbar sein.", "Es muss erkennbar sein, wer welche Daten wann und wozu verarbeitet.", "Daten dürfen nur im Klartext gespeichert werden.", "Die Verschlüsselung muss offenlegt werden."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Welche Kategorie umfasst Daten wie 'Name', 'Dienstgrad' und 'dienstliche Erreichbarkeit'?", 
+        a: "Allgemeine personenbezogene Daten (Funktionsträgerdaten).", 
+        e: "Diese Daten sind für die dienstliche Aufgabenerfüllung notwendig und fallen in den niedrigsten Schutzbereich 1.", 
+        o: ["Besondere personenbezogene Daten.", "Allgemeine personenbezogene Daten (Funktionsträgerdaten).", "Verschlusssachen (VS-NfD).", "Private Stammdaten."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Wann liegt ein 'Informationssicherheitsverstoß' vor?", 
+        a: "Wenn angeordnete Sicherheitsmaßnahmen nicht eingehalten wurden.", 
+        e: "Ein Verstoß grenzt sich von der Lücke ab: Hier wurden bestehende Regeln (vorsätzlich oder fahrlässig) missachtet.", 
+        o: ["Wenn eine Festplatte defekt ist.", "Wenn angeordnete Sicherheitsmaßnahmen nicht eingehalten wurden.", "Wenn ein Update installiert wird.", "Wenn eine neue Schwachstelle entdeckt wird, für die es noch keine Regelung gibt."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Worauf bezieht sich der Begriff 'Intervenierbarkeit'?", 
+        a: "Auf das Recht des Betroffenen auf Berichtigung, Löschung oder Sperrung seiner Daten.", 
+        e: "Es sichert dem Bürger die Herrschaft über seine eigenen Daten (Informationelle Selbstbestimmung).", 
+        o: ["Auf die Möglichkeit des Administrators, Passwörter zurückzusetzen.", "Auf das Recht des Vorgesetzten, E-Mails zu lesen.", "Auf das Recht des Betroffenen auf Berichtigung, Löschung oder Sperrung seiner Daten.", "Auf die physische Zerstörung von Datenträgern."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Sind Gesundheitsdaten (z.B. 90/5) 'Allgemeine personenbezogene Daten'?", 
+        a: "Nein, es sind 'Besondere personenbezogene Daten' (BPersDat).", 
+        e: "Gesundheitsdaten genießen einen höheren Schutzstatus als reine Adress- oder Verwaltungsdaten.", 
+        o: ["Ja, sie sind Schutzbereich 1.", "Ja, aber nur für den Truppenarzt.", "Nein, es sind 'Besondere personenbezogene Daten' (BPersDat).", "Nein, sie sind Verschlusssachen."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "In welchem Verhältnis stehen IT-Sicherheit und Informationssicherheit zueinander?", 
+        a: "IT-Sicherheit ist ein Teilaspekt der Informationssicherheit.", 
+        e: "Informationssicherheit ist der Überbegriff (schützt Informationen egal ob auf Papier oder im Kopf), IT-Sicherheit schützt technische Systeme.", 
+        o: ["Sie sind exakt dasselbe.", "Informationssicherheit ist ein Teilaspekt der IT-Sicherheit.", "IT-Sicherheit ist ein Teilaspekt der Informationssicherheit.", "IT-Sicherheit betrifft nur Hardware, Informationssicherheit nur Software."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Was ist eine 'Informationssicherheitslücke'?", 
+        a: "Ein neu entdeckter Schwachpunkt, trotz ordnungsgemäßer Umsetzung aller Regeln.", 
+        e: "Im Gegensatz zum Verstoß hat hier niemand einen Fehler gemacht; das System hat eine technische oder organisatorische Unzulänglichkeit.", 
+        o: ["Ein vorsätzlicher Verstoß gegen Vorschriften.", "Der Verlust eines Laptops.", "Ein neu entdeckter Schwachpunkt, trotz ordnungsgemäßer Umsetzung aller Regeln.", "Das Vergessen des Passworts."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Welche Daten fallen unter das 'allgemeine Persönlichkeitsrecht'?", 
+        a: "Alle personenbezogenen Daten.", 
+        e: "Das Recht auf informationelle Selbstbestimmung (Art. 2 GG) schützt grundsätzlich alle Daten, die einer Person zugeordnet werden können.", 
+        o: ["Nur Gesundheitsdaten.", "Nur Daten von Politikern.", "Alle personenbezogenen Daten.", "Nur finanzielle Daten."], 
+        m: "DATENSCHUTZ" 
+    },
+    { 
+        q: "Was ist KEINE Kategorie im Schema der Bw-Datenschutzklassen?", 
+        a: "Schutzbereich 4.", 
+        e: "Das Konzept der Bundeswehr kennt nur die Schutzbereiche 1 (Funktionsträger), 2 (Privates) und 3 (Besonders Sensibles/BPersDat).", 
+        o: ["Schutzbereich 1.", "Schutzbereich 2.", "Schutzbereich 3.", "Schutzbereich 4."], 
+        m: "DATENSCHUTZ" 
+    },
+
+    // --- NEUE FRAGEN: SCHUTZBEREICHE & MAßNAHMEN (Gemäß Präsentation) ---
+    { 
+        q: "Welche Daten fallen in den Schutzbereich 1?", 
+        a: "Funktionsträgerdaten (z.B. Name, Dienstgrad, dienstl. Telefon).", 
+        e: "Diese Daten sind für den Dienstbetrieb erforderlich und weniger schutzbedürftig, da sie die offizielle Funktion betreffen.", 
+        o: ["Gesundheitsdaten.", "Private Anschrift und Handynummer.", "Funktionsträgerdaten (z.B. Name, Dienstgrad, dienstl. Telefon).", "Disziplinarakten."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Welche Daten fallen typischerweise in den Schutzbereich 2?", 
+        a: "Private Adressen, Geburtsdatum, Familienstand, Bankverbindung.", 
+        e: "Hierbei handelt es sich um private Informationen, die aber noch keine 'besonderen Daten' nach Art. 9 DSGVO sind.", 
+        o: ["Funktionsträgerdaten.", "Private Adressen, Geburtsdatum, Familienstand, Bankverbindung.", "Gesundheitsdaten.", "Nur öffentliche Informationen."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Welche Daten fallen in den Schutzbereich 3?", 
+        a: "Disziplinarakten, Sicherheitsakten und alle Gesundheitsdaten.", 
+        e: "Hier droht dem Betroffenen der größte Schaden bei Bekanntwerden, daher ist das Schutzniveau am höchsten.", 
+        o: ["Dienstliche Telefonlisten.", "Geburtstagslisten.", "Disziplinarakten, Sicherheitsakten und alle Gesundheitsdaten.", "Organigramme der Abteilung."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Welche Verschlüsselung ist für Daten des Schutzbereichs 2 (z.B. Excel-Liste mit Geburtstagen) mindestens erforderlich?", 
+        a: "7-Zip (AES256) oder MS Office Verschlüsselung (ab 2016).", 
+        e: "Für SB 2 sind gängige, starke Verschlüsselungen wie AES256 in 7-Zip oder modernen Office-Versionen ausreichend.", 
+        o: ["Gar keine, Passwortschutz reicht.", "7-Zip (AES256) oder MS Office Verschlüsselung (ab 2016).", "Zwingend SINA-Box.", "Rot13-Verfahren."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Welche Anforderung gilt für die Speicherung von Schutzbereich 3-Daten (z.B. Gesundheitsakte digital)?", 
+        a: "Zwingende Verschlüsselung mit zugelassenen Mitteln (z.B. GnuPG VS-Desktop, Chiasmus).", 
+        e: "Einfache Passwörter reichen hier nicht. Es müssen vom BSI/Bw zugelassene Krypto-Tools genutzt werden.", 
+        o: ["Speicherung im öffentlichen Ordner.", "Windows-Anmeldepasswort genügt.", "Zwingende Verschlüsselung mit zugelassenen Mitteln (z.B. GnuPG VS-Desktop, Chiasmus).", "Verstecken der Datei in einem Unterordner."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Darf man Daten des Schutzbereichs 3 per E-Mail an einen externen Empfänger senden?", 
+        a: "Grundsätzlich verboten.", 
+        e: "Der Versand von hochsensiblen Daten (z.B. Gesundheitsdaten) über das offene Internet ist aufgrund des Risikos untersagt.", 
+        o: ["Ja, immer.", "Ja, wenn der Empfänger vertrauenswürdig wirkt.", "Grundsätzlich verboten.", "Nur am Wochenende."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Wie müssen Papierunterlagen des Schutzbereichs 1 (z.B. Telefonliste) aufbewahrt werden?", 
+        a: "Keine besonderen Anforderungen (Büroschrank).", 
+        e: "Da es sich um Funktionsträgerdaten handelt, ist keine Tresorlagerung vorgeschrieben. Ein normaler Büroschrank genügt.", 
+        o: ["Im Panzerschrank.", "Im VS-Verwahrgelass.", "Keine besonderen Anforderungen (Büroschrank).", "Sie müssen täglich vernichtet werden."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Ist die Personalnummer (letzte 5 Ziffern der PK) Schutzbereich 1 oder 2?", 
+        a: "Schutzbereich 1 (Sonderstellung).", 
+        e: "Die Personalnummer dient der Identifikation im Dienst und wird meist wie ein Funktionsträgerdatum (SB 1) behandelt.", 
+        o: ["Schutzbereich 1 (Sonderstellung).", "Schutzbereich 2.", "Schutzbereich 3.", "Sie ist öffentlich."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Darf ich Daten des Schutzbereichs 2 (z.B. private Handynummern) unverschlüsselt per E-Mail im Bw-Intranet versenden?", 
+        a: "Nein, Verschlüsselung (z.B. S/MIME, Greenshield) ist erforderlich.", 
+        e: "Auch im Intranet müssen private Daten vor unbefugter Einsicht (z.B. durch Admins) geschützt werden.", 
+        o: ["Ja, das Intranet ist sicher.", "Ja, aber nur an Vorgesetzte.", "Nein, Verschlüsselung (z.B. S/MIME, Greenshield) ist erforderlich.", "Nur wenn es eilt."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Fällt ein Auszug aus dem Zentralregister in den Schutzbereich 2?", 
+        a: "Nein, in Schutzbereich 3.", 
+        e: "Daten aus dem Bundeszentralregister (Vorstrafen etc.) sind hochsensibel und gehören in die höchste Kategorie.", 
+        o: ["Ja, Schutzbereich 2.", "Nein, in Schutzbereich 3.", "Nein, Schutzbereich 1.", "Er ist öffentlich."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Welche Verschlüsselungsmethode wird für Schutzbereich 1 im E-Mail-Verkehr standardmäßig genutzt?", 
+        a: "S/MIME (Greenshield) oder Transportverschlüsselung.", 
+        e: "Für Funktionsträgerdaten genügt die Standardverschlüsselung (Outlook/S/MIME), keine zusätzliche Dateiverschlüsselung nötig.", 
+        o: ["GnuPG VS-Desktop.", "Chiasmus.", "S/MIME (Greenshield) oder Transportverschlüsselung.", "7-Zip mit 256 Bit."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Was ist bei der Übermittlung von Schutzbereich 1-Daten an Externe zu beachten?", 
+        a: "GnuPG-Verschlüsselung wird empfohlen, ist aber nicht zwingend, wenn Transportverschlüsselung vorliegt.", 
+        e: "Da es 'nur' Funktionsträgerdaten sind, ist der Schutzbedarf geringer als bei Privatdaten.", 
+        o: ["Es ist verboten.", "GnuPG-Verschlüsselung ist streng verboten.", "GnuPG-Verschlüsselung wird empfohlen, ist aber nicht zwingend, wenn Transportverschlüsselung vorliegt.", "Es muss per Bote gesendet werden."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Wohin gehören Daten über 'erfolgte Lehrgangsteilnahmen'?", 
+        a: "Schutzbereich 2.", 
+        e: "Diese Daten sind Teil der persönlichen Historie/Akte und privater als reine Name/Dienstgrad-Infos (SB 1).", 
+        o: ["Schutzbereich 1.", "Schutzbereich 2.", "Schutzbereich 3.", "Öffentliche Daten."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Welcher Schutzbereich gilt für 'Sonstige schutzbedürftige Informationen' (z.B. vertrauliche Unternehmensdaten)?", 
+        a: "Sie fallen nicht in das SB 1-3 Schema, müssen aber analog geschützt werden.", 
+        e: "Das Schema SB 1-3 gilt spezifisch für personenbezogene Daten. Industriedaten etc. sind eine eigene Kategorie.", 
+        o: ["Immer Schutzbereich 3.", "Immer Schutzbereich 1.", "Sie fallen nicht in das SB 1-3 Schema, müssen aber analog geschützt werden.", "Sie brauchen keinen Schutz."], 
+        m: "SCHUTZBEREICHE" 
+    },
+    { 
+        q: "Ist 7-Zip eine zulässige Verschlüsselung für Schutzbereich 3?", 
+        a: "Nein.", 
+        e: "Für die höchste Schutzstufe SB 3 (z.B. Gesundheitsdaten) sind robustere, zugelassene Verfahren wie Chiasmus oder GnuPG VS-Desktop vorgeschrieben.", 
+        o: ["Ja, immer.", "Ja, wenn das Passwort lang genug ist.", "Nein.", "Nur in Ausnahmefällen."], 
+        m: "SCHUTZBEREICHE" 
+    },
 
     // --- ABSTRAHLSICHERHEIT ---
     { q: "Was ist das Ziel der Abstrahlsicherheit?", a: "Verhinderung der Ausspähung durch kompromittierende elektromagnetische Strahlung.", e: "Schutz vor TEMPEST-Angriffen.", o: ["Schutz vor Blitzeinschlägen", "Verhinderung der Ausspähung durch kompromittierende elektromagnetische Strahlung.", "Kühlung der Server", "Verhinderung von WLAN-Störungen"], m: "ABSTRAHLUNG" },
@@ -208,7 +417,7 @@ const BANK = [
     { q: "In welchen Abständen muss eine Wiederholungsmessung für mobile IT-Systeme (MEP) erfolgen?", a: "Spätestens nach 12 Monaten.", e: "Mobile Geräte unterliegen höherem Verschleiß, daher jährliche Prüfung.", o: ["Alle 6 Monate", "Spätestens nach 12 Monaten.", "Alle 24 Monate", "Nur bei Defekt"], m: "ABSTRAHLUNG" },
     { q: "In welchem Dokument der Bundeswehr ist die Abstrahlsicherheit primär geregelt?", a: "A-960/1", e: "Die zentrale Vorschrift für Abstrahlsicherheit.", o: ["A-960/1", "ZDv 3/12", "IT-Grundschutz", "Bw-Krypto-Handbuch"], m: "ABSTRAHLUNG" },
     { q: "Was kennzeichnet die 'Zone 1' im Zonenmodell?", a: "Ein Bereich mit kontrolliertem Zugang, aber geringerem Schutzabstand als Zone 0.", e: "Zone 1 erfordert oft Geräte mit SDIP 27 Level B (mittlere Schirmung).", o: ["Öffentlicher Raum", "Höchste Schutzzone im Servergehäuse", "Ein Bereich mit kontrolliertem Zugang, aber geringerem Schutzabstand als Zone 0.", "Ein mobiles Zelt im Einsatz"], m: "ABSTRAHLUNG" },
-    { q: "Welche Farbe hat eine gültige MEP-Plakette?", a: "Gelb", e: "Die gelbe Plakette signalisiert die bestandenene Messung.", o: ["Grün", "Gelb", "Blau", "Rot"], m: "ABSTRAHLUNG" },
+    { q: "Welche Farbe hat eine gültige MEP-Plakette?", a: "Rot", e: "Die rote Plakette signalisiert die bestandenene Messung.", o: ["Grün", "Gelb", "Blau", "Rot"], m: "ABSTRAHLUNG" },
     { q: "Was muss geschehen, wenn ein Gerät mit MEP-Plakette repariert wurde (Gehäuseöffnung)?", a: "Es muss eine neue Kurzvermessung durchgeführt werden.", e: "Das Öffnen des Gehäuses kann die Schirmung beschädigen.", o: ["Nichts", "Es muss weggeworfen werden", "Es muss eine neue Kurzvermessung durchgeführt werden.", "Es muss nur neu gestartet werden"], m: "ABSTRAHLUNG" },
     { q: "Was beschreibt der Begriff 'Kompromittierende Strahlung'?", a: "Ungewollte elektromagnetische Emissionen, die den Informationsgehalt verraten.", e: "Das Signal 'leckt' aus dem Kabel oder Monitor in die Luft.", o: ["Radioaktive Strahlung aus Monitoren", "Strahlung, die Hardware zerstört", "Ungewollte elektromagnetische Emissionen, die den Informationsgehalt verraten.", "WLAN-Signale, die das Internet verlangsamen"], m: "ABSTRAHLUNG" },
 
@@ -452,3 +661,4 @@ modules.forEach(m => {
 </script>
 </body>
 </html>
+
